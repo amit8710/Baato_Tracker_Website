@@ -8,17 +8,22 @@
   --teal-dark: #0f766e; /* Deep Teal → navbar, footer */
   --teal-primary: #0d9488; /* Primary → buttons, links */
   --teal-light: #14b8a6; /* Light → backgrounds, highlights */
+  -text-light: rgba(252, 252, 252, 0.902);
+  --text-highlight: #ffffff;
+  --text-mainlight: #171717;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --border-light: rgba(255, 255, 255, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* --background: #0a0a0a; */
     --foreground: #ededed;
 
-    /* optional: teal for dark mode */
+    /* optional: teal for dark mode
     --teal-dark: #115e59;
     --teal-primary: #0d9488;
-    --teal-light: #2dd4bf;
+    --teal-light: #2dd4bf; */
   }
 }
 /*Connecting CSS variables to tailwind */

@@ -8,9 +8,7 @@ import {
   Variants
 } from 'framer-motion'
 
-import RequestDemoButton from '../common/RequestDemoButton'
-import DownloadButton from '../common/DownloadButton'
-import LearnMoreButton from '../common/LearnMoreButton'
+import Button from '../common/Button'
 
 const containerVariants: Variants = {
   hidden: {
@@ -78,7 +76,7 @@ export default function HeroSection () {
             animate='visible'
           >
             <motion.div variants={itemVariants} className='mb-4'>
-              <RequestDemoButton />
+              <Button text='Request Demo' />
             </motion.div>
 
             <motion.h1
@@ -103,8 +101,8 @@ export default function HeroSection () {
               variants={itemVariants}
               className='flex flex-wrap gap-4'
             >
-              <DownloadButton />
-              <LearnMoreButton />
+              <Button text='Download App' href='/gettheapp' />
+              <Button text='LearnMore' href='about' />
             </motion.div>
           </motion.div>
 
