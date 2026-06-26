@@ -4,6 +4,8 @@ import HowItWorksSection from '@/components/sections/HowItWorksSection'
 import NewsSection from '@/components/sections/NewsSection'
 import StatisticsSection from '@/components/sections/StatisticsSection'
 import ClientSection from '@/components/sections/clientSection'
+import TestimonialSection from '@/components/sections/TestimonialSection'
+import StayConnectedSection from '@/components/sections/StayConnectedSection'
 
 export default function Home () {
   return (
@@ -14,6 +16,8 @@ export default function Home () {
       <NewsSection />
       <StatisticsSection />
       <ClientSection />
+      <TestimonialSection />
+      <StayConnectedSection />
     </main>
   )
 }

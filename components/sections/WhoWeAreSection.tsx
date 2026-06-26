@@ -53,30 +53,33 @@ const cardVariants: Variants = {
 export default function WhoWeAreSection () {
   return (
     <section
-      className='py-12 lg:py-16 overflow-hidden'
-      style={{ background: 'var(--background)', color: 'var(--foreground)' }}
+      className='py-8 lg:py-12 overflow-hidden'
+      style={{
+        background: 'var(--text-muted)',
+        color: 'var(--foreground)'
+      }}
     >
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-2 gap-8 lg:gap-12 items-center'>
+        <div className='grid lg:grid-cols-2 gap-6 lg:gap-8 items-center'>
           {/* LEFT CONTENT */}
           <div className='max-w-xl'>
             <span
-              className='block text-sm md:text-base font-semibold uppercase tracking-[0.2em] mb-3'
-              style={{ color: 'var(--teal-primary)' }}
+              className='block text-sm font-semibold uppercase tracking-[0.2em] mb-2'
+              style={{ color: 'var(--teal-dark)' }}
             >
               Who We Are
             </span>
 
             <h2
-              className='text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4'
-              style={{ color: 'var(--teal-dark)' }}
+              className='text-2xl md:text-3xl lg:text-[2rem] font-bold leading-tight mb-3'
+              style={{ color: 'var(--teal-primary)' }}
             >
               Smart School Transportation For Modern Schools
             </h2>
 
             <p
-              className='text-base leading-7 mb-6 max-w-lg'
-              style={{ color: 'var(--text-muted)' }}
+              className='text-sm md:text-base leading-7 mb-5 max-w-lg'
+              style={{ color: 'var(--teal-light)' }}
             >
               Bato Tracker helps schools, parents, and drivers stay connected
               through real-time school bus tracking, instant notifications,
@@ -88,13 +91,13 @@ export default function WhoWeAreSection () {
 
           {/* RIGHT SIDE */}
           <div className='relative flex justify-center lg:justify-end'>
-            {/* FLOATING CARDS (DESKTOP ONLY) */}
+            {/* FLOATING CARDS */}
             <motion.div
               variants={cardContainerVariants}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
-              className='hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 flex-col gap-4 z-10'
+              className='hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 flex-col gap-3 z-10'
             >
               <motion.div
                 variants={cardVariants}
@@ -174,17 +177,17 @@ export default function WhoWeAreSection () {
               <Image
                 src='/mobile1.png'
                 alt='Bato Tracker Mobile App'
-                width={420}
-                height={800}
+                width={380}
+                height={720}
                 priority
-                className='w-[220px] sm:w-[250px] md:w-[280px] lg:w-[320px] h-auto object-contain drop-shadow-2xl'
+                className='w-[190px] sm:w-[220px] md:w-[250px] lg:w-[280px] h-auto object-contain drop-shadow-2xl'
               />
             </motion.div>
           </div>
         </div>
 
         {/* MOBILE CARDS */}
-        <div className='lg:hidden mt-10 grid sm:grid-cols-2 gap-4 justify-items-center'>
+        <div className='lg:hidden mt-8 grid sm:grid-cols-2 gap-4 justify-items-center'>
           <FeatureCard
             icon={<FaMapMarkerAlt />}
             title='Real-time Tracking'
@@ -194,7 +197,7 @@ export default function WhoWeAreSection () {
           <FeatureCard
             icon={<FaBell />}
             title='Instant Alerts'
-            description='Pickup & drop notifications'
+            description='Pickup &drop notifications'
           />
 
           <FeatureCard

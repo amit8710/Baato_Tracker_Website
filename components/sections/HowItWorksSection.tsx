@@ -67,7 +67,7 @@ export default function HowItWorksSection () {
       <div
         className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
         w-[400px] h-[400px] rounded-full blur-3xl opacity-15 pointer-events-none'
-        style={{ backgroundColor: 'var(--teal-primary)' }}
+        style={{ backgroundColor: 'var(--teal-light)' }}
       />
 
       <div className='relative max-w-7xl mx-auto px-6 lg:px-8'>
@@ -88,7 +88,7 @@ export default function HowItWorksSection () {
 
           <h2
             className='text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4'
-            style={{ color: 'var(--teal-dark)' }}
+            style={{ color: 'var(--text-highlight)' }}
           >
             Simple Steps To Track Your School Bus
           </h2>

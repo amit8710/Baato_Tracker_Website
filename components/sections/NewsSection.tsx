@@ -5,7 +5,6 @@ import { motion, Variants } from 'framer-motion'
 
 import NewsCard from '@/components/cards/NewsCard'
 import { newsData } from '@/data/newsData'
-
 const fadeUp: Variants = {
   hidden: {
     opacity: 0,

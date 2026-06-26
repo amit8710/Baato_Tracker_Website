@@ -1,7 +1,22 @@
+import PageHero from '@/components/common/PageHero'
+import AppExperience from '@/components/get-the-app/AppExperience'
+import AppScreens from '@/components/get-the-app/AppScreens'
+import GetStarted from '@/components/get-the-app/GetStarted'
+import CTASection from '@/components/common/CTASection'
+
 export default function Get_The_App () {
   return (
-    <div className='min-h-screen flex items-center justify-center'>
-      <h1 className='text-5xl font-bold'>Get The App Page</h1>
-    </div>
+    <>
+      <PageHero
+        companyName='Bato Tracker'
+        pageTitle='Get The App'
+        backgroundImage='/heroimg.png'
+      />
+
+      <AppExperience />
+      <AppScreens />
+      <GetStarted />
+      <CTASection />
+    </>
   )
 }

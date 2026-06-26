@@ -1,7 +1,23 @@
+import PageHero from '@/components/common/PageHero'
+import Introduction from '@/components/how-it-works/Introduction'
+import ProcessTimeline from '@/components/how-it-works/ProcessTimeline'
+import FeaturesAction from '@/components/how-it-works/FeaturesAction'
+// import UserJourney from '@/components/how-it-works/UserJourney'
+import CTASection from '@/components/common/CTASection'
+
 export default function HowItWorksPage () {
   return (
-    <div className='min-h-screen flex items-center justify-center'>
-      <h1 className='text-5xl font-bold'>How It Works Page</h1>
-    </div>
+    <>
+      <PageHero
+        companyName='Bato Tracker'
+        pageTitle='How It Works'
+        backgroundImage='/heroimg.png'
+      />
+      <Introduction />
+      <FeaturesAction />
+      <ProcessTimeline />
+      {/* <UserJourney /> */}
+      <CTASection />
+    </>
   )
 }

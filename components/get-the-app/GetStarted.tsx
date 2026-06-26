@@ -1,0 +1,156 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { FaArrowRight } from 'react-icons/fa'
+
+import Button from '@/components/common/Button'
+import DownloadStepCard from '@/components/cards/DownloadStepCard'
+import { appDownloadStepsData } from '@/data/appDownloadStepsData'
+
+export default function GetStarted () {
+  return (
+    <section className='py-20' style={{ backgroundColor: 'var(--background)' }}>
+      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1.5,
+            ease: 'easeOut'
+          }}
+          className='text-center max-w-3xl mx-auto mb-16'
+        >
+          <span
+            className='uppercase tracking-[0.25em] text-sm font-semibold'
+            style={{ color: 'var(--teal-primary)' }}
+          >
+            Get Started
+          </span>
+
+          <h2
+            className='mt-4 text-3xl md:text-5xl font-bold'
+            style={{ color: 'var(--teal-dark)' }}
+          >
+            Start Tracking in Just
+            <br />
+            Three Easy Steps
+          </h2>
+
+          <p
+            className='mt-5 text-lg leading-8'
+            style={{ color: 'var(--text-mainlight)' }}
+          >
+            Getting started with Bato Tracker is simple. Download the app,
+            create your account and begin tracking your school bus in real time.
+          </p>
+        </motion.div>
+
+        {/* Steps */}
+        <div className='hidden lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 items-center'>
+          {appDownloadStepsData.map((step, index) => {
+            const Icon = step.icon
+
+            return (
+              <div key={step.id} className='contents'>
+                <DownloadStepCard
+                  step={`0${step.id}`}
+                  icon={Icon}
+                  title={step.title}
+                  description={step.description}
+                  delay={index * 0.2}
+                />
+
+                {index < appDownloadStepsData.length - 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 1.2,
+                      delay: index * 0.3
+                    }}
+                    className='flex justify-center'
+                  >
+                    <motion.div
+                      animate={{
+                        x: [0, 10, 0]
+                      }}
+                      transition={{
+                        duration: 1.6,
+                        repeat: Infinity
+                      }}
+                    >
+                      <FaArrowRight
+                        size={30}
+                        style={{
+                          color: 'var(--teal-primary)'
+                        }}
+                      />
+                    </motion.div>
+                  </motion.div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Mobile */}
+        <div className='grid lg:hidden gap-8'>
+          {appDownloadStepsData.map((step, index) => {
+            const Icon = step.icon
+
+            return (
+              <DownloadStepCard
+                key={step.id}
+                step={`0${step.id}`}
+                icon={Icon}
+                title={step.title}
+                description={step.description}
+                delay={index * 0.2}
+              />
+            )
+          })}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1.5,
+            delay: 0.6
+          }}
+          className='mt-20 text-center'
+        >
+          <h3
+            className='text-3xl font-bold'
+            style={{
+              color: 'var(--teal-dark)'
+            }}
+          >
+            Ready to Get Started?
+          </h3>
+
+          <p
+            className='mt-4 max-w-2xl mx-auto'
+            style={{
+              color: 'var(--text-mainlight)'
+            }}
+          >
+            Download Bato Tracker today and experience a smarter, safer and more
+            connected school transportation system.
+          </p>
+
+          <div className='mt-10 flex flex-col sm:flex-row justify-center gap-5'>
+            <Button text='Google Play' href='#' />
+
+            <Button text='App Store' href='#' />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}

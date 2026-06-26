@@ -36,15 +36,12 @@ export default function Navbar () {
               Home
             </Link>
 
-            <Link
-              href='/gettheapp'
-              className='hover:text-teal-light transition'
-            >
+            <Link href='/getapp' className='hover:text-teal-light transition'>
               Get The App
             </Link>
 
             <Link
-              href='/howitworks'
+              href='/how-it-works'
               className='hover:text-teal-light transition'
             >
               How It Works
