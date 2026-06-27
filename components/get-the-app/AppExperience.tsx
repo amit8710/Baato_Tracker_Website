@@ -59,14 +59,14 @@ export default function AppExperience () {
               Right in Your Pocket
             </h2>
 
-            <p
+            {/* <p
               className='mt-6 text-lg leading-8'
               style={{ color: 'var(--text-mainlight)' }}
             >
               The Bato Tracker mobile app helps parents, schools and drivers
               stay connected through live GPS tracking, instant notifications
               and an intuitive interface designed for everyday use.
-            </p>
+            </p> */}
 
             {/* Experience List */}
             <div className='mt-10 space-y-6'>

@@ -1,99 +1,75 @@
 'use client'
-
-import { motion } from 'framer-motion'
+import ScreenCard from '../cards/ScreenCard'
+import { appScreenData } from '@/data/appScreenData'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
+import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-
-import ScreenCard from '../cards/ScreenCArd'
-import { appScreenData } from '@/data/appScreenData'
 
 export default function AppScreens () {
   return (
     <section
-      className='py-20 overflow-hidden'
+      className='py-12 lg:py-16'
       style={{ backgroundColor: 'var(--teal-light)' }}
     >
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 1.5
-          }}
-          className='text-center max-w-3xl mx-auto mb-14'
-        >
+        <div className='text-center max-w-2xl mx-auto mb-10'>
           <span
-            className='uppercase tracking-[0.25em] text-sm font-semibold'
-            style={{
-              color: 'var(--text-highlight)'
-            }}
+            className='uppercase tracking-[0.25em] text-xs font-semibold'
+            style={{ color: 'var(--text-highlight)' }}
           >
             App Screens
           </span>
-
           <h2
-            className='mt-4 text-3xl md:text-5xl font-bold'
-            style={{
-              color: 'var(--text-highlight)'
-            }}
+            className='mt-3 text-2xl md:text-4xl font-bold'
+            style={{ color: 'var(--text-highlight)' }}
           >
             Explore the App
           </h2>
-
-          <p
-            className='mt-5 text-lg leading-8'
-            style={{
-              color: 'var(--text-muted)'
-            }}
+          {/* <p
+            className='mt-3 text-sm md:text-base leading-7'
+            style={{ color: 'var(--text-muted)' }}
           >
-            Discover the intuitive interface that helps parents, schools and
-            drivers stay connected through real-time transportation updates.
-          </p>
-        </motion.div>
+            Explore every screen of Bato Tracker and discover how parents,
+            schools and drivers stay connected through one powerful mobile app.
+          </p> */}
+        </div>
 
         {/* Swiper */}
-        <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
-          spaceBetween={30}
-          loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false
-          }}
-          pagination={{
-            clickable: true
-          }}
-          navigation
-          breakpoints={{
-            0: {
-              slidesPerView: 1
-            },
-            768: {
-              slidesPerView: 2
-            },
-            1200: {
-              slidesPerView: 3
-            }
-          }}
-        >
-          {appScreenData.map((screen, index) => (
-            <SwiperSlide key={screen.id}>
-              <ScreenCard
-                title={screen.title}
-                description={screen.description}
-                image={screen.image}
-                delay={index * 0.15}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className='app-screen-swiper'>
+          <Swiper
+            modules={[EffectCoverflow, Pagination, Autoplay]}
+            effect='coverflow'
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView='auto'
+            loop={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 120,
+              modifier: 2.5,
+              slideShadows: true
+            }}
+            pagination={{ clickable: true }}
+          >
+            {appScreenData.map(screen => (
+              <SwiperSlide key={screen.id}>
+                <ScreenCard
+                  title={screen.title}
+                  description={screen.description}
+                  image={screen.image}
+                  delay={0}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </section>
   )

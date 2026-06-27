@@ -1,114 +1,98 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 type NewsCardProps = {
   slug: string
-  image: string
   title: string
-  date: string
-  author: string
-  category: string
   description: string
-  featured?: boolean
+  image: string
+  date: string
+  category: string
 }
 
 export default function NewsCard ({
   slug,
-  image,
   title,
-  date,
-  author,
-  category,
   description,
-  featured = false
+  image,
+  date,
+  category
 }: NewsCardProps) {
   return (
-    <Link href={`/news/${slug}`}>
-      <motion.div
-        whileHover={{ y: -6 }}
-        transition={{ duration: 0.3 }}
-        className='cursor-pointer group'
-      >
-        <div
-          className={`relative overflow-hidden rounded-2xl ${
-            featured ? 'h-64 mb-5' : 'h-24 w-28 flex-shrink-0'
-          }`}
-        >
-          <motion.div
-            whileHover={{ scale: 1.08 }}
-            transition={{ duration: 0.4 }}
-            className='w-full h-full'
+    <article
+      className='overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl'
+      style={{
+        borderColor: 'rgba(0,0,0,0.08)'
+      }}
+    >
+      {/* Image */}
+      <Link href={`/news-updates/${slug}`} aria-label={`Read ${title}`}>
+        <div className='relative h-56 overflow-hidden cursor-pointer'>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes='(max-width:768px) 100vw,
+                   (max-width:1200px) 50vw,
+                   33vw'
+            className='object-cover transition-transform duration-500 hover:scale-105'
+          />
+
+          <span
+            className='absolute left-4 top-4 rounded-full px-4 py-1 text-xs font-semibold text-white'
+            style={{
+              backgroundColor: 'var(--teal-primary)'
+            }}
           >
-            <Image src={image} alt={title} fill className='object-cover' />
-          </motion.div>
+            {category}
+          </span>
         </div>
+      </Link>
 
-        {featured && (
-          <>
-            <div className='flex flex-wrap gap-3 text-xs mb-3'>
-              <span
-                className='px-3 py-1 rounded-full'
-                style={{
-                  background:
-                    'color-mix(in srgb, var(--teal-primary) 12%, var(--background))',
-                  color: 'var(--teal-dark)'
-                }}
-              >
-                {category}
-              </span>
+      {/* Content */}
+      <div className='p-6'>
+        <p
+          className='text-sm font-medium'
+          style={{
+            color: 'var(--teal-primary)'
+          }}
+        >
+          {date}
+        </p>
 
-              <span
-                style={{
-                  color: 'var(--teal-dark)',
-                  opacity: 0.6
-                }}
-              >
-                {date}
-              </span>
+        <Link href={`/news-updates/${slug}`} aria-label={`Open ${title}`}>
+          <h3
+            className='mt-3 cursor-pointer text-xl font-bold leading-8 transition-colors duration-300 hover:text-teal-600'
+            style={{
+              color: 'var(--text-mainlight)'
+            }}
+          >
+            {title}
+          </h3>
+        </Link>
 
-              <span
-                style={{
-                  color: 'var(--teal-dark)',
-                  opacity: 0.6
-                }}
-              >
-                By {author}
-              </span>
-            </div>
+        <p
+          className='mt-3 line-clamp-3 text-sm leading-7'
+          style={{
+            color: '#666'
+          }}
+        >
+          {description}
+        </p>
 
-            <h3
-              className='text-2xl font-bold mb-3'
-              style={{
-                color: 'var(--teal-dark)'
-              }}
-            >
-              {title}
-            </h3>
-
-            <p
-              className='leading-7 mb-4'
-              style={{
-                color: 'var(--teal-dark)',
-                opacity: 0.7
-              }}
-            >
-              {description}
-            </p>
-
-            <span
-              className='text-sm font-semibold'
-              style={{
-                color: 'var(--teal-primary)'
-              }}
-            >
-              Read More →
-            </span>
-          </>
-        )}
-      </motion.div>
-    </Link>
+        <Link
+          href={`/news-updates/${slug}`}
+          className='mt-6 inline-flex items-center gap-2 font-semibold transition-all duration-300 hover:gap-3'
+          style={{
+            color: 'var(--teal-primary)'
+          }}
+        >
+          Read More
+          <span aria-hidden='true'>→</span>
+        </Link>
+      </div>
+    </article>
   )
 }
