@@ -87,7 +87,7 @@ const teamData: Record<
   leadership: [
     {
       name: 'Purna Karki',
-      role: 'Founder & Lead Trekking Guide',
+      role: 'Founder & Lead ',
       company: 'Bato Tracker',
       image: '/pro.png',
       linkedin: 'https://linkedin.com'
@@ -101,7 +101,7 @@ const teamData: Record<
     },
     {
       name: 'Ram Thapa',
-      role: 'Senior Trekking Guide',
+      role: 'POM',
       company: 'Bato Tracker',
       image: '/team/team3.jpg',
       linkedin: 'https://linkedin.com'
