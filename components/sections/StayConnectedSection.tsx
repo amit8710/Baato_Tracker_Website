@@ -14,18 +14,16 @@ export default function StayConnectedSection () {
     >
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
         <motion.div
-          animate={{
-            y: [0, -6, 0]
-          }}
+          animate={{ y: [0, -6, 0] }}
           transition={{
             duration: 5,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
-          className='rounded-2xl shadow-2xl px-8 lg:px-12 py-10 border'
+          className='rounded-3xl border p-8 shadow-2xl lg:p-12 backdrop-blur-md'
           style={{
-            background: 'var(--text-highlight)',
-            borderColor: 'rgba(255,255,255,0.15)'
+            background: 'var(--background)',
+            borderColor: 'var(--border-light)'
           }}
         >
           {/* Heading */}
@@ -34,7 +32,7 @@ export default function StayConnectedSection () {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className='text-2xl lg:text-3xl font-bold uppercase mb-8'
+            className='mb-8 text-2xl font-bold uppercase lg:text-3xl'
             style={{
               color: 'var(--teal-dark)'
             }}
@@ -44,7 +42,7 @@ export default function StayConnectedSection () {
 
           {/* Form */}
 
-          <form className='grid grid-cols-1 md:grid-cols-4 gap-6 items-end'>
+          <form className='grid grid-cols-1 items-end gap-6 md:grid-cols-4'>
             {/* Name */}
 
             <motion.div
@@ -53,28 +51,25 @@ export default function StayConnectedSection () {
               transition={{ delay: 0.1 }}
             >
               <label
-                className='block text-sm font-semibold mb-2'
+                className='mb-2 block text-sm font-semibold'
                 style={{
-                  color: 'var(--text-light)'
+                  color: 'var(--text-mainlight)'
                 }}
               >
                 Name
               </label>
 
               <motion.input
-                whileHover={{
-                  scale: 1.02
-                }}
-                whileFocus={{
-                  scale: 1.02
-                }}
+                whileHover={{ scale: 1.02 }}
+                whileFocus={{ scale: 1.02 }}
                 type='text'
                 placeholder='Enter your name'
-                className='w-full h-12 rounded-lg px-4 border outline-none transition-all duration-300'
+                className='h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
                 style={{
-                  background: '#fff',
+                  background: 'var(--text-highlight)',
                   color: 'var(--text-mainlight)',
-                  borderColor: '#d1d5db'
+                  borderColor: 'var(--border-light)',
+                  caretColor: 'var(--teal-primary)'
                 }}
               />
             </motion.div>
@@ -87,28 +82,25 @@ export default function StayConnectedSection () {
               transition={{ delay: 0.2 }}
             >
               <label
-                className='block text-sm font-semibold mb-2'
+                className='mb-2 block text-sm font-semibold'
                 style={{
-                  color: 'var(--text-light)'
+                  color: 'var(--text-mainlight)'
                 }}
               >
                 Phone
               </label>
 
               <motion.input
-                whileHover={{
-                  scale: 1.02
-                }}
-                whileFocus={{
-                  scale: 1.02
-                }}
+                whileHover={{ scale: 1.02 }}
+                whileFocus={{ scale: 1.02 }}
                 type='tel'
                 placeholder='Phone number'
-                className='w-full h-12 rounded-lg px-4 border outline-none transition-all duration-300'
+                className='h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
                 style={{
-                  background: '#fff',
+                  background: 'var(--text-highlight)',
                   color: 'var(--text-mainlight)',
-                  borderColor: '#d1d5db'
+                  borderColor: 'var(--border-light)',
+                  caretColor: 'var(--teal-primary)'
                 }}
               />
             </motion.div>
@@ -121,28 +113,25 @@ export default function StayConnectedSection () {
               transition={{ delay: 0.3 }}
             >
               <label
-                className='block text-sm font-semibold mb-2'
+                className='mb-2 block text-sm font-semibold'
                 style={{
-                  color: 'var(--text-light)'
+                  color: 'var(--text-mainlight)'
                 }}
               >
                 Email
               </label>
 
               <motion.input
-                whileHover={{
-                  scale: 1.02
-                }}
-                whileFocus={{
-                  scale: 1.02
-                }}
+                whileHover={{ scale: 1.02 }}
+                whileFocus={{ scale: 1.02 }}
                 type='email'
                 placeholder='Email address'
-                className='w-full h-12 rounded-lg px-4 border outline-none transition-all duration-300'
+                className='h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
                 style={{
-                  background: '#fff',
+                  background: 'var(--text-highlight)',
                   color: 'var(--text-mainlight)',
-                  borderColor: '#d1d5db'
+                  borderColor: 'var(--border-light)',
+                  caretColor: 'var(--teal-primary)'
                 }}
               />
             </motion.div>

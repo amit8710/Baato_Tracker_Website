@@ -145,9 +145,15 @@ export default function GetStarted () {
           </p>
 
           <div className='mt-10 flex flex-col sm:flex-row justify-center gap-5'>
-            <Button text='Google Play' href='#' />
+            <Button
+              text='Google Play'
+              href='https://play.google.com/store/apps/details?id=com.google.android.apps.classroom'
+            />
 
-            <Button text='App Store' href='#' />
+            <Button
+              text='App Store'
+              href='https://play.google.com/store/apps/details?id=com.google.android.apps.classroom'
+            />
           </div>
         </motion.div>
       </div>

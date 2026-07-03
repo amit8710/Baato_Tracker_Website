@@ -8,7 +8,7 @@ export default function Get_The_App () {
   return (
     <>
       <PageHero
-        companyName='Bato Tracker'
+        companyName='Baato Tracker'
         pageTitle='Get The App'
         backgroundImage='/heroimg.png'
       />

@@ -76,7 +76,7 @@ export default function HeroSection () {
             animate='visible'
           >
             <motion.div variants={itemVariants} className='mb-4'>
-              <Button text='Request Demo' />
+              <Button text='Request a Demo' />
             </motion.div>
 
             <motion.h1
@@ -84,7 +84,8 @@ export default function HeroSection () {
               className='text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6'
               style={{ color: 'var(--teal-dark)' }}
             >
-              Bato <span style={{ color: 'var(--teal-primary)' }}>Tracker</span>
+              Baato{' '}
+              <span style={{ color: 'var(--teal-primary)' }}>Tracker</span>
             </motion.h1>
 
             <motion.p
@@ -101,7 +102,10 @@ export default function HeroSection () {
               variants={itemVariants}
               className='flex flex-wrap gap-4'
             >
-              <Button text='Download App' href='/gettheapp' />
+              <Button
+                text='Download App'
+                href='https://play.google.com/store/apps/details?id=com.google.android.apps.classroom'
+              />
               <Button text='LearnMore' href='about' />
             </motion.div>
           </motion.div>

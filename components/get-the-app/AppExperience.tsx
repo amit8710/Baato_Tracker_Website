@@ -11,13 +11,14 @@ import ExperienceItem from '../cards/ExperienceItem'
 export default function AppExperience () {
   return (
     <section
-      className='py-20 lg:py-14'
-      style={{ backgroundColor: 'var(--background)' }}
+      className='py-24 lg:py-32'
+      style={{ backgroundColor: 'var (--background)' }}
     >
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-2 gap-10 lg:gap-12 items-center'>
+        <div className='grid lg:grid-cols-[0.9fr_1.1fr] gap-16 xl:gap-24 items-center'>
           {/* Left Image */}
           <motion.div
+            className='max-w-xl'
             initial={{ opacity: 0, x: -120 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -25,10 +26,9 @@ export default function AppExperience () {
               duration: 1.5,
               ease: 'easeOut'
             }}
-            className='flex justify-center'
           >
             <Image
-              src='/Transportation-02.png'
+              src='/mobile2.png'
               alt='Bato Tracker Mobile App'
               width={340}
               height={620}
@@ -73,12 +73,12 @@ export default function AppExperience () {
             </p>
 
             {/* Experience List */}
-            <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch'>
+            <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8'>
               {experienceData.map(item => {
                 const Icon = item.icon
 
                 return (
-                  <div key={item.id} className='h-full'>
+                  <div key={item.id} className='flex'>
                     <FeatureCard
                       icon={<Icon />}
                       title={item.title}
@@ -100,7 +100,10 @@ export default function AppExperience () {
               }}
               className='mt-8 flex justify-center lg:justify-end'
             >
-              <Button text='Download the App' href='#' />
+              <Button
+                text='Download the App'
+                href='https://play.google.com/store/apps/details?id=com.google.android.apps.classroom'
+              />
             </motion.div>
           </motion.div>
         </div>

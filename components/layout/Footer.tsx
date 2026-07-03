@@ -33,7 +33,7 @@ export default function Footer () {
                 height={55}
               />
 
-              <h2 className='text-2xl font-bold'>Bato Tracker</h2>
+              <h2 className='text-2xl font-bold'>Baato Tracker</h2>
             </div>
 
             <p

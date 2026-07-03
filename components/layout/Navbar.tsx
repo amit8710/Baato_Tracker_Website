@@ -7,60 +7,50 @@ import Image from 'next/image'
 import LoginButton from '../common/LoginButton'
 import Button from '../common/Button'
 
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/getapp', label: 'Get The App' },
+  { href: '/how-it-works', label: 'How It Works' },
+  // { href: '/news-updates', label: 'News & Updates' },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact' }
+]
+
 export default function Navbar () {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className='w-full bg-teal-dark text-white shadow-md sticky top-0 z-50'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-20'>
+    <header className='glass-navbar sticky top-0 z-50 w-full shadow-xl'>
+      {/* Glass Overlay */}
+      <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none' />
+
+      <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='flex h-20 items-center justify-between'>
           {/* Logo */}
           <Link href='/' className='flex items-center gap-3'>
             <Image
               src='/logo.png'
-              alt='Bato Tracker Logo'
-              width={50}
-              height={50}
+              alt='Baato Tracker Logo'
+              width={48}
+              height={48}
               priority
-              className='object-contain'
             />
 
-            <span className='text-xl lg:text-2xl font-bold tracking-wide'>
-              Bato Tracker
+            <span
+              className='text-xl lg:text-2xl font-bold tracking-wide'
+              style={{ color: 'var(--text-highlight)' }}
+            >
+              Baato Tracker
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className='hidden lg:flex items-center gap-6 xl:gap-8 text-sm xl:text-base font-medium'>
-            <Link href='/' className='hover:text-teal-light transition'>
-              Home
-            </Link>
-
-            <Link href='/getapp' className='hover:text-teal-light transition'>
-              Get The App
-            </Link>
-
-            <Link
-              href='/how-it-works'
-              className='hover:text-teal-light transition'
-            >
-              How It Works
-            </Link>
-
-            <Link
-              href='/news-updates'
-              className='hover:text-teal-light transition'
-            >
-              News & Updates
-            </Link>
-
-            <Link href='/about' className='hover:text-teal-light transition'>
-              About Us
-            </Link>
-
-            <Link href='/contact' className='hover:text-teal-light transition'>
-              Contact
-            </Link>
+          <nav className='hidden lg:flex items-center gap-8 text-sm font-medium'>
+            {navLinks.map(link => (
+              <Link key={link.href} href={link.href} className='nav-link'>
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Desktop Buttons */}
@@ -69,76 +59,58 @@ export default function Navbar () {
             <Button text='Request Demo' href='/contact' />
           </div>
 
-          {/* Mobile & Tablet Menu Button */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className='lg:hidden text-3xl font-bold'
-            aria-label='Toggle Menu'
+            className='lg:hidden flex h-11 w-11 items-center justify-center rounded-xl border backdrop-blur-md transition-all duration-300 hover:scale-105'
+            style={{
+              borderColor: 'var(--border-light)',
+              background: 'rgba(255,255,255,0.08)',
+              color: 'var(--text-highlight)'
+            }}
           >
-            {menuOpen ? '✕' : '☰'}
+            <span className='text-2xl'>{menuOpen ? '✕' : '☰'}</span>
           </button>
         </div>
       </div>
 
-      {/* Mobile & Tablet Menu */}
-      {menuOpen && (
-        <div className='lg:hidden bg-teal-dark border-t border-white/10'>
-          <div className='px-6 py-6 flex flex-col gap-5 text-base font-medium'>
-            <Link
-              href='/'
-              onClick={() => setMenuOpen(false)}
-              className='hover:text-teal-light transition'
-            >
-              Home
-            </Link>
+      {/* Mobile Menu */}
+      <div
+        className={`overflow-hidden transition-all duration-500 lg:hidden ${
+          menuOpen ? 'max-h-[600px]' : 'max-h-0'
+        }`}
+      >
+        <div
+          className='mx-4 mb-4 rounded-2xl backdrop-blur-2xl shadow-2xl'
+          style={{
+            background: 'rgba(15,118,110,0.85)',
+            border: '1px solid var(--border-light)'
+          }}
+        >
+          <div className='flex flex-col px-6 py-6'>
+            {navLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className='nav-link py-3'
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
 
-            <Link
-              href='/gettheapp'
-              onClick={() => setMenuOpen(false)}
-              className='hover:text-teal-light transition'
+            <div
+              className='mt-5 flex flex-col gap-3 pt-5'
+              style={{
+                borderTop: '1px solid var(--border-light)'
+              }}
             >
-              Get The App
-            </Link>
-
-            <Link
-              href='/howitworks'
-              onClick={() => setMenuOpen(false)}
-              className='hover:text-teal-light transition'
-            >
-              How It Works
-            </Link>
-
-            <Link
-              href='/news-updates'
-              onClick={() => setMenuOpen(false)}
-              className='hover:text-teal-light transition'
-            >
-              News & Updates
-            </Link>
-
-            <Link
-              href='/about'
-              onClick={() => setMenuOpen(false)}
-              className='hover:text-teal-light transition'
-            >
-              About Us
-            </Link>
-
-            <Link
-              href='/contact'
-              onClick={() => setMenuOpen(false)}
-              className='hover:text-teal-light transition'
-            >
-              Contact
-            </Link>
-
-            <div className='flex flex-col gap-3 pt-4'>
               <LoginButton />
               <Button text='Request Demo' href='/contact' />
             </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }

@@ -8,7 +8,7 @@ export default function ContactPage () {
   return (
     <>
       <PageHero
-        companyName='Bato Tracker'
+        companyName='Baato Tracker'
         pageTitle='Contact Us'
         backgroundImage='/heroimg.png'
       />

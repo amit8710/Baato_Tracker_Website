@@ -81,7 +81,7 @@ export default function WhoWeAreSection () {
               className='text-sm md:text-base leading-7 mb-5 max-w-lg'
               style={{ color: 'var(--teal-light)' }}
             >
-              Bato Tracker helps schools, parents, and drivers stay connected
+              Baato Tracker helps schools, parents, and drivers stay connected
               through real-time school bus tracking, instant notifications,
               route monitoring, and enhanced student safety.
             </p>
@@ -168,19 +168,29 @@ export default function WhoWeAreSection () {
             </motion.div>
 
             {/* PHONE MOCKUP */}
+            <div className='relative z-10 w-[340px] h-[650px] flex items-center justify-center'>
+              <Image
+                src='/mobile2.png'
+                alt='Baato Tracker Mobile App'
+                fill
+                className='object-contain'
+                priority
+              />
+            </div>
+            {/* PHONE MOCKUP */}
             <motion.div
               variants={phoneVariants}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
+              className='relative flex justify-center items-center'
             >
-              <Image
-                src='/mobile1.png'
-                alt='Bato Tracker Mobile App'
-                width={380}
-                height={720}
-                priority
-                className='w-[190px] sm:w-[220px] md:w-[250px] lg:w-[280px] h-auto object-contain drop-shadow-2xl'
+              {/* Soft Background Glow */}
+              <div
+                className='absolute w-72 h-72 lg:w-80 lg:h-80 rounded-full blur-3xl opacity-20'
+                style={{
+                  backgroundColor: 'var(--teal-light)'
+                }}
               />
             </motion.div>
           </div>

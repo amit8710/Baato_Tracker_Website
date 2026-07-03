@@ -1,169 +1,119 @@
 'use client'
 
 import { ReactNode } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 type StepCardProps = {
   icon: ReactNode
   title: string
   description: string
-  stepNumber: string
-  isUnlocked: boolean
   isActive: boolean
-  onClick: () => void
 }
 
 export default function StepCard ({
   icon,
   title,
   description,
-  stepNumber,
-  isUnlocked,
-  isActive,
-  onClick
+  isActive
 }: StepCardProps) {
   return (
-    <div
-      className='flex flex-col items-center text-center relative z-10 cursor-pointer'
-      onClick={onClick}
+    <motion.div
+      animate={{
+        y: isActive ? -10 : 0,
+        scale: isActive ? 1.04 : 1
+      }}
+      transition={{
+        duration: 0.5,
+        ease: 'easeOut'
+      }}
+      whileHover={{
+        y: -8,
+        scale: 1.02
+      }}
+      className='relative h-full'
     >
-      {/* Step Number */}
-      <AnimatePresence>
-        {isUnlocked && (
-          <motion.span
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className='text-xs font-semibold tracking-[0.2em] uppercase mb-3'
-            style={{
-              color: isActive
-                ? 'var(--teal-primary)'
-                : 'rgba(13, 148, 136, 0.5)'
-            }}
-          >
-            {stepNumber}
-          </motion.span>
-        )}
-      </AnimatePresence>
+      {/* Glow */}
+      {isActive && (
+        <motion.div
+          className='absolute inset-0 rounded-3xl blur-3xl -z-10'
+          style={{
+            background: 'var(--teal-light)'
+          }}
+          animate={{
+            opacity: [0.12, 0.22, 0.12]
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity
+          }}
+        />
+      )}
 
-      {!isUnlocked && <div className='h-6 mb-3' />}
+      <div
+        className='h-full rounded-3xl p-8 text-center transition-all duration-500'
+        style={{
+          background: 'var(--background)',
+          border: isActive
+            ? '2px solid var(--teal-primary)'
+            : '1px solid var(--border-light)',
+          boxShadow: isActive
+            ? '0 20px 40px rgba(15,118,110,.18)'
+            : '0 8px 25px rgba(15,118,110,.08)'
+        }}
+      >
+        {/* Icon */}
+        <motion.div
+          animate={{
+            scale: isActive ? 1.08 : 1,
+            rotate: isActive ? [0, -4, 4, 0] : 0
+          }}
+          transition={{
+            duration: 0.8
+          }}
+          className='mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl'
+          style={{
+            background: isActive ? 'var(--teal-primary)' : 'var(--background)',
+            color: isActive ? 'var(--text-highlight)' : 'var(--teal-primary)',
+            border: `2px solid var(--teal-primary)`
+          }}
+        >
+          <div className='text-4xl'>{icon}</div>
+        </motion.div>
 
-      {/* Icon Circle */}
-      <AnimatePresence>
-        {isUnlocked && (
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.7 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 220,
-              damping: 15
-            }}
-            whileHover={{
-              scale: 1.08,
-              y: -5
-            }}
-            className='relative w-28 h-28 rounded-full flex items-center justify-center mb-6 shadow-xl backdrop-blur-sm'
-            style={{
-              backgroundColor: isActive
-                ? 'var(--teal-primary)'
-                : 'rgba(255,255,255,0.85)',
-              border: `2px solid ${
-                isActive ? 'var(--teal-primary)' : 'rgba(13,148,136,0.15)'
-              }`
-            }}
-          >
-            {/* Glow Effect */}
-            {isActive && (
-              <motion.div
-                className='absolute inset-0 rounded-full'
-                style={{
-                  backgroundColor: 'var(--teal-primary)'
-                }}
-                animate={{
-                  scale: [1, 1.15, 1],
-                  opacity: [0.25, 0.08, 0.25]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity
-                }}
-              />
-            )}
+        {/* Title */}
+        <h3
+          className='mb-4 text-xl font-bold'
+          style={{
+            color: 'var(--teal-dark)'
+          }}
+        >
+          {title}
+        </h3>
 
-            {/* Pulse Ring */}
-            <motion.div
-              className='absolute inset-0 rounded-full border-2'
-              style={{
-                borderColor: 'var(--teal-primary)'
-              }}
-              animate={{
-                scale: [1, 1.18],
-                opacity: [0.4, 0]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity
-              }}
-            />
+        {/* Description */}
+        <p
+          className='text-sm leading-7'
+          style={{
+            color: 'var(--text-mainlight)'
+          }}
+        >
+          {description}
+        </p>
 
-            {/* Icon */}
-            <motion.div
-              animate={
-                isActive
-                  ? {
-                      y: [0, -8, 0]
-                    }
-                  : {}
-              }
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-              className='relative z-10 text-5xl'
-              style={{
-                color: isActive ? '#ffffff' : 'var(--teal-primary)'
-              }}
-            >
-              {icon}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {!isUnlocked && <div className='w-28 h-28 mb-6' />}
-
-      {/* Content */}
-      <AnimatePresence>
-        {isUnlocked && (
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className='max-w-[240px]'
-          >
-            <h3
-              className='text-xl font-bold mb-3'
-              style={{
-                color: 'var(--text-light)'
-              }}
-            >
-              {title}
-            </h3>
-
-            <p
-              className='text-sm leading-7'
-              style={{
-                color: 'var(--text-light)'
-              }}
-            >
-              {description}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+        {/* Accent Line */}
+        <motion.div
+          animate={{
+            width: isActive ? '70%' : '35%'
+          }}
+          transition={{
+            duration: 0.5
+          }}
+          className='mx-auto mt-7 h-1 rounded-full'
+          style={{
+            background: isActive ? 'var(--teal-primary)' : 'var(--teal-light)'
+          }}
+        />
+      </div>
+    </motion.div>
   )
 }

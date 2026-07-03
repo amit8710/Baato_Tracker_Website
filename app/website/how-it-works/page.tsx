@@ -9,7 +9,7 @@ export default function HowItWorksPage () {
   return (
     <>
       <PageHero
-        companyName='Bato Tracker'
+        companyName='Baato Tracker'
         pageTitle='How It Works'
         backgroundImage='/heroimg.png'
       />

@@ -8,7 +8,7 @@ export default function AboutPage () {
   return (
     <>
       <PageHero
-        companyName='Bato Tracker'
+        companyName='Baato Tracker'
         pageTitle='About Us'
         backgroundImage='heroimg.png'
       />
