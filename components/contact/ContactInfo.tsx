@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa'
+
 import Button from '@/components/common/Button'
 
 const contactDetails = [
@@ -30,8 +31,8 @@ const contactDetails = [
 export default function ContactInfo () {
   return (
     <section className='py-16' style={{ backgroundColor: 'var(--teal-light)' }}>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-5 gap-10 items-center'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='grid items-center gap-10 lg:grid-cols-5'>
           {/* Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -120 }}
@@ -44,21 +45,21 @@ export default function ContactInfo () {
             className='lg:col-span-2'
           >
             <span
-              className='uppercase tracking-[0.25em] text-sm font-semibold'
+              className='section-label'
               style={{ color: 'var(--text-highlight)' }}
             >
               Contact Us
             </span>
 
             <h2
-              className='mt-3 text-3xl lg:text-4xl font-bold leading-tight'
+              className='heading-2 mt-3'
               style={{ color: 'var(--text-highlight)' }}
             >
               We'd Love to Hear From You
             </h2>
 
             <p
-              className='mt-5 leading-7'
+              className='body-text mt-5'
               style={{ color: 'var(--text-light)' }}
             >
               Whether you're a school, parent, or partner, we're here to help.
@@ -72,7 +73,7 @@ export default function ContactInfo () {
                 return (
                   <div key={index} className='flex items-start gap-4'>
                     <div
-                      className='w-12 h-12 rounded-xl flex items-center justify-center shadow-md'
+                      className='flex h-12 w-12 items-center justify-center rounded-xl shadow-md'
                       style={{
                         backgroundColor: 'var(--teal-dark)'
                       }}
@@ -85,13 +86,18 @@ export default function ContactInfo () {
 
                     <div>
                       <h4
-                        className='font-semibold'
+                        className='heading-4'
                         style={{ color: 'var(--text-highlight)' }}
                       >
                         {item.title}
                       </h4>
 
-                      <p style={{ color: 'var(--text-light)' }}>{item.value}</p>
+                      <p
+                        className='body-text'
+                        style={{ color: 'var(--text-light)' }}
+                      >
+                        {item.value}
+                      </p>
                     </div>
                   </div>
                 )
@@ -108,21 +114,21 @@ export default function ContactInfo () {
               duration: 1.5,
               ease: 'easeOut'
             }}
-            className='lg:col-span-3 bg-white rounded-3xl shadow-2xl p-8 lg:p-10'
+            className='rounded-3xl bg-white p-8 shadow-2xl lg:col-span-3 lg:p-10'
           >
             <h3
-              className='text-2xl font-bold mb-6'
+              className='heading-3 mb-6'
               style={{ color: 'var(--teal-dark)' }}
             >
               Send Us a Message
             </h3>
 
             <form className='space-y-5'>
-              <div className='grid md:grid-cols-2 gap-5'>
+              <div className='grid gap-5 md:grid-cols-2'>
                 <input
                   type='text'
                   placeholder='Full Name'
-                  className='w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 transition-all'
+                  className='body-text w-full rounded-xl border px-4 py-3 outline-none transition-all focus:ring-2'
                   style={{
                     borderColor: 'var(--teal-primary)',
                     backgroundColor: 'var(--background)',
@@ -133,7 +139,7 @@ export default function ContactInfo () {
                 <input
                   type='email'
                   placeholder='Email Address'
-                  className='w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 transition-all'
+                  className='body-text w-full rounded-xl border px-4 py-3 outline-none transition-all focus:ring-2'
                   style={{
                     borderColor: 'var(--teal-primary)',
                     backgroundColor: 'var(--background)',
@@ -142,11 +148,11 @@ export default function ContactInfo () {
                 />
               </div>
 
-              <div className='grid md:grid-cols-2 gap-5'>
+              <div className='grid gap-5 md:grid-cols-2'>
                 <input
                   type='tel'
                   placeholder='Phone Number'
-                  className='w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 transition-all'
+                  className='body-text w-full rounded-xl border px-4 py-3 outline-none transition-all focus:ring-2'
                   style={{
                     borderColor: 'var(--teal-primary)',
                     backgroundColor: 'var(--background)',
@@ -157,7 +163,7 @@ export default function ContactInfo () {
                 <input
                   type='text'
                   placeholder='Subject'
-                  className='w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 transition-all'
+                  className='body-text w-full rounded-xl border px-4 py-3 outline-none transition-all focus:ring-2'
                   style={{
                     borderColor: 'var(--teal-primary)',
                     backgroundColor: 'var(--background)',
@@ -169,7 +175,7 @@ export default function ContactInfo () {
               <textarea
                 rows={6}
                 placeholder='Write your message...'
-                className='w-full rounded-xl border px-4 py-3 outline-none resize-none focus:ring-2 transition-all'
+                className='body-text w-full resize-none rounded-xl border px-4 py-3 outline-none transition-all focus:ring-2'
                 style={{
                   borderColor: 'var(--teal-primary)',
                   backgroundColor: 'var(--background)',
@@ -177,7 +183,7 @@ export default function ContactInfo () {
                 }}
               />
 
-              <div className='flex justify-end mt-6'>
+              <div className='mt-6 flex justify-end'>
                 <div className='scale-110'>
                   <Button text='Send Message' href='#' />
                 </div>

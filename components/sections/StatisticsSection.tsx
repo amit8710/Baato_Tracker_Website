@@ -40,12 +40,12 @@ const stats = [
 export default function StatisticsSection () {
   return (
     <section
-      className='py-3 lg:py-3' // reduced height here
+      className='py-3 lg:py-3'
       style={{
         backgroundColor: 'var(--teal-dark)'
       }}
     >
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <div className='grid grid-cols-2 lg:grid-cols-4'>
           {stats.map((stat, index) => (
             <motion.div
@@ -59,10 +59,10 @@ export default function StatisticsSection () {
               }}
               className={`
                 flex flex-col items-center justify-center
-                text-center py-2 lg:py-2 px-3   // reduced padding here
+                px-3 py-2 text-center
                 ${
                   index !== stats.length - 1
-                    ? 'lg:border-r border-white/15'
+                    ? 'border-white/15 lg:border-r'
                     : ''
                 }
               `}
@@ -77,7 +77,7 @@ export default function StatisticsSection () {
                   type: 'spring',
                   stiffness: 300
                 }}
-                className='text-2xl lg:text-3xl mb-1 cursor-pointer'
+                className='mb-1 cursor-pointer text-2xl lg:text-3xl'
                 style={{
                   color: 'var(--text-highlight)'
                 }}
@@ -86,7 +86,7 @@ export default function StatisticsSection () {
               </motion.div>
 
               <h3
-                className='text-xl lg:text-3xl font-bold mb-1'
+                className='heading-3 mb-1'
                 style={{
                   color: 'var(--text-highlight)'
                 }}
@@ -103,7 +103,7 @@ export default function StatisticsSection () {
               </h3>
 
               <p
-                className='text-xs font-medium'
+                className='small-text'
                 style={{
                   color: 'var(--text-highlight)'
                 }}

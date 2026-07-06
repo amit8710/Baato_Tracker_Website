@@ -10,7 +10,7 @@ import { appDownloadStepsData } from '@/data/appDownloadStepsData'
 export default function GetStarted () {
   return (
     <section className='py-20' style={{ backgroundColor: 'var(--background)' }}>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -20,35 +20,32 @@ export default function GetStarted () {
             duration: 1.5,
             ease: 'easeOut'
           }}
-          className='text-center max-w-3xl mx-auto mb-16'
+          className='mx-auto mb-16 max-w-3xl text-center'
         >
           <span
-            className='uppercase tracking-[0.25em] text-sm font-semibold'
+            className='section-label'
             style={{ color: 'var(--teal-primary)' }}
           >
             Get Started
           </span>
 
-          <h2
-            className='mt-4 text-3xl md:text-5xl font-bold'
-            style={{ color: 'var(--teal-dark)' }}
-          >
+          <h2 className='heading-2 mt-4' style={{ color: 'var(--teal-dark)' }}>
             Start Tracking in Just
             <br />
             Three Easy Steps
           </h2>
 
           <p
-            className='mt-5 text-lg leading-8'
+            className='body-text mt-5'
             style={{ color: 'var(--text-mainlight)' }}
           >
-            Getting started with Bato Tracker is simple. Download the app,
+            Getting started with Baato Tracker is simple. Download the app,
             create your account and begin tracking your school bus in real time.
           </p>
         </motion.div>
 
-        {/* Steps */}
-        <div className='hidden lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 items-center'>
+        {/* Desktop Steps */}
+        <div className='hidden items-center gap-6 lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr]'>
           {appDownloadStepsData.map((step, index) => {
             const Icon = step.icon
 
@@ -74,9 +71,7 @@ export default function GetStarted () {
                     className='flex justify-center'
                   >
                     <motion.div
-                      animate={{
-                        x: [0, 10, 0]
-                      }}
+                      animate={{ x: [0, 10, 0] }}
                       transition={{
                         duration: 1.6,
                         repeat: Infinity
@@ -84,9 +79,7 @@ export default function GetStarted () {
                     >
                       <FaArrowRight
                         size={30}
-                        style={{
-                          color: 'var(--teal-primary)'
-                        }}
+                        style={{ color: 'var(--teal-primary)' }}
                       />
                     </motion.div>
                   </motion.div>
@@ -96,8 +89,8 @@ export default function GetStarted () {
           })}
         </div>
 
-        {/* Mobile */}
-        <div className='grid lg:hidden gap-8'>
+        {/* Mobile Steps */}
+        <div className='grid gap-8 lg:hidden'>
           {appDownloadStepsData.map((step, index) => {
             const Icon = step.icon
 
@@ -125,26 +118,19 @@ export default function GetStarted () {
           }}
           className='mt-20 text-center'
         >
-          <h3
-            className='text-3xl font-bold'
-            style={{
-              color: 'var(--teal-dark)'
-            }}
-          >
+          <h3 className='heading-3' style={{ color: 'var(--teal-dark)' }}>
             Ready to Get Started?
           </h3>
 
           <p
-            className='mt-4 max-w-2xl mx-auto'
-            style={{
-              color: 'var(--text-mainlight)'
-            }}
+            className='body-text mx-auto mt-4 max-w-2xl'
+            style={{ color: 'var(--text-mainlight)' }}
           >
-            Download Bato Tracker today and experience a smarter, safer and more
-            connected school transportation system.
+            Download Baato Tracker today and experience a smarter, safer and
+            more connected school transportation system.
           </p>
 
-          <div className='mt-10 flex flex-col sm:flex-row justify-center gap-5'>
+          <div className='mt-10 flex flex-col justify-center gap-5 sm:flex-row'>
             <Button
               text='Google Play'
               href='https://play.google.com/store/apps/details?id=com.google.android.apps.classroom'

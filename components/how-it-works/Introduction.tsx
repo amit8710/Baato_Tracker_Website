@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaCheckCircle } from 'react-icons/fa'
+
 import Button from '@/components/common/Button'
 
 const features = [
@@ -15,8 +16,8 @@ const features = [
 export default function Introduction () {
   return (
     <section className='py-20' style={{ backgroundColor: 'var(--background)' }}>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-2 gap-16 items-center'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='grid items-center gap-16 lg:grid-cols-2'>
           {/* Left Image */}
           <motion.div
             initial={{ opacity: 0, x: -120 }}
@@ -29,10 +30,10 @@ export default function Introduction () {
           >
             <Image
               src='/Transportation-02.png'
-              alt='How Bato Tracker Works'
+              alt='How Baato Tracker Works'
               width={650}
               height={550}
-              className='rounded-3xl shadow-2xl object-cover'
+              className='rounded-3xl object-cover shadow-2xl'
             />
           </motion.div>
 
@@ -48,24 +49,24 @@ export default function Introduction () {
             }}
           >
             <span
-              className='uppercase tracking-[0.25em] text-sm font-semibold'
+              className='section-label'
               style={{ color: 'var(--teal-primary)' }}
             >
               How It Works
             </span>
 
             <h2
-              className='mt-4 text-4xl lg:text-5xl font-bold leading-tight'
+              className='heading-2 mt-4'
               style={{ color: 'var(--teal-dark)' }}
             >
               Simple Steps to Smart School Transportation
             </h2>
 
             <p
-              className='mt-6 text-lg leading-8'
+              className='body-text mt-6'
               style={{ color: 'var(--text-mainlight)' }}
             >
-              Bato Tracker simplifies school transportation by connecting
+              Baato Tracker simplifies school transportation by connecting
               schools, drivers, parents, and students through one intelligent
               platform. From registering buses to tracking every journey in real
               time, our system ensures safety, transparency, and peace of mind
@@ -87,12 +88,12 @@ export default function Introduction () {
                   className='flex items-center gap-4'
                 >
                   <FaCheckCircle
-                    className='text-xl flex-shrink-0'
+                    className='flex-shrink-0 text-xl'
                     style={{ color: 'var(--teal-primary)' }}
                   />
 
                   <span
-                    className='text-base'
+                    className='body-text'
                     style={{ color: 'var(--text-mainlight)' }}
                   >
                     {feature}

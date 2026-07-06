@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaCheckCircle } from 'react-icons/fa'
+
 import Button from '@/components/common/Button'
 
 const features = [
@@ -14,9 +15,12 @@ const features = [
 
 export default function AboutSection () {
   return (
-    <section className='py-20 bg-white overflow-hidden'>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-2 gap-14 items-center'>
+    <section
+      className='overflow-hidden py-20'
+      style={{ backgroundColor: 'var(--background)' }}
+    >
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='grid items-center gap-14 lg:grid-cols-2'>
           {/* Left Image */}
           <motion.div
             initial={{ opacity: 0, x: -180 }}
@@ -29,10 +33,10 @@ export default function AboutSection () {
           >
             <Image
               src='/Transportation-02.png'
-              alt='About Bato Tracker'
+              alt='About Baato Tracker'
               width={650}
               height={500}
-              className='rounded-2xl shadow-xl object-cover'
+              className='rounded-2xl object-cover shadow-xl'
             />
           </motion.div>
 
@@ -48,24 +52,24 @@ export default function AboutSection () {
             }}
           >
             <span
-              className='uppercase tracking-[0.25em] text-sm font-semibold'
+              className='section-label'
               style={{ color: 'var(--teal-primary)' }}
             >
               About Us
             </span>
 
             <h2
-              className='mt-4 text-4xl font-bold leading-tight'
+              className='heading-2 mt-4'
               style={{ color: 'var(--teal-dark)' }}
             >
               Making School Transportation Safer & Smarter
             </h2>
 
             <p
-              className='mt-6 text-lg leading-8'
+              className='body-text mt-6'
               style={{ color: 'var(--text-mainlight)' }}
             >
-              Bato Tracker is a smart school bus tracking platform designed to
+              Baato Tracker is a smart school bus tracking platform designed to
               improve student safety through live GPS tracking, real-time
               notifications, and efficient transportation management. We help
               schools, parents, and drivers stay connected every day.
@@ -91,7 +95,10 @@ export default function AboutSection () {
                     style={{ color: 'var(--teal-primary)' }}
                   />
 
-                  <span style={{ color: 'var(--text-mainlight)' }}>
+                  <span
+                    className='body-text'
+                    style={{ color: 'var(--text-mainlight)' }}
+                  >
                     {feature}
                   </span>
                 </motion.div>

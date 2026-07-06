@@ -2,16 +2,17 @@
 
 import { motion } from 'framer-motion'
 import { HiChevronDoubleRight, HiChevronDoubleDown } from 'react-icons/hi'
+
 import JourneyCard from '@/components/cards/JourneyCard'
 import { journeyData } from '@/data/journeyData'
 
 export default function UserJourney () {
   return (
     <section
-      className='py-20 overflow-hidden'
+      className='overflow-hidden py-20'
       style={{ backgroundColor: 'var(--teal-light)' }}
     >
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -21,34 +22,31 @@ export default function UserJourney () {
             duration: 1.2,
             ease: 'easeOut'
           }}
-          className='text-center max-w-3xl mx-auto mb-16'
+          className='mx-auto mb-16 max-w-3xl text-center'
         >
           <span
-            className='uppercase tracking-[0.25em] text-sm font-semibold'
+            className='section-label'
             style={{ color: 'var(--text-highlight)' }}
           >
             User Journey
           </span>
 
           <h2
-            className='mt-4 text-3xl md:text-4xl lg:text-5xl font-bold'
+            className='heading-2 mt-4'
             style={{ color: 'var(--text-highlight)' }}
           >
             How Every Journey Happens
           </h2>
 
-          <p
-            className='mt-6 text-base md:text-lg leading-8'
-            style={{ color: 'var(--text-muted)' }}
-          >
+          <p className='body-text mt-6' style={{ color: 'var(--text-muted)' }}>
             From the moment the school bus starts its journey until every
-            student reaches school safely, Bato Tracker keeps parents, schools,
+            student reaches school safely, Baato Tracker keeps parents, schools,
             and drivers connected through real-time technology.
           </p>
         </motion.div>
 
         {/* Desktop Timeline */}
-        <div className='hidden lg:flex items-start justify-between gap-3'>
+        <div className='hidden items-start justify-between gap-3 lg:flex'>
           {journeyData.map((item, index) => (
             <div key={item.id} className='flex items-center'>
               <div className='w-64'>
@@ -94,7 +92,7 @@ export default function UserJourney () {
         </div>
 
         {/* Mobile Timeline */}
-        <div className='lg:hidden space-y-6'>
+        <div className='space-y-6 lg:hidden'>
           {journeyData.map((item, index) => (
             <div key={item.id}>
               <JourneyCard

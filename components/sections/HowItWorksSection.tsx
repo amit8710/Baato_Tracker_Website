@@ -67,7 +67,7 @@ export default function HowItWorksSection () {
         {/* Heading */}
         <div className='mx-auto max-w-3xl text-center'>
           <span
-            className='inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em]'
+            className='button-text inline-flex items-center rounded-full px-5 py-2 uppercase tracking-[0.2em]'
             style={{
               backgroundColor: 'var(--teal-primary)',
               color: 'var(--text-highlight)'
@@ -77,7 +77,7 @@ export default function HowItWorksSection () {
           </span>
 
           <h2
-            className='mt-6 text-4xl font-bold leading-tight lg:text-5xl'
+            className='heading-2 mt-6'
             style={{
               color: 'var(--text-mainlight)'
             }}
@@ -87,26 +87,28 @@ export default function HowItWorksSection () {
             Made Simple
           </h2>
 
-          {/* <p
-            className='mx-auto mt-6 max-w-2xl text-lg leading-8'
+          {/*
+          <p
+            className='body-large mx-auto mt-6 max-w-2xl'
             style={{
-              color: 'var(--foreground)'
+              color: 'var(--text-light1)'
             }}
           >
             Baato Tracker seamlessly connects schools, drivers and parents
             through live GPS tracking, smart route management and instant
             notifications.
-          </p> */}
+          </p>
+          */}
         </div>
 
         {/* Progress */}
-        <div className='mt-12 mb-16 flex justify-center'>
+        <div className='mb-16 mt-12 flex justify-center'>
           <div className='flex items-center gap-3'>
             {steps.map((_, index) => (
               <div
                 key={index}
                 className={`rounded-full transition-all duration-700 ${
-                  activeStep === index ? 'w-16 h-2' : 'w-8 h-2'
+                  activeStep === index ? 'h-2 w-16' : 'h-2 w-8'
                 }`}
                 style={{
                   backgroundColor:

@@ -1,12 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import {
-  motion,
-  AnimatePresence,
-  useAnimationControls,
-  Variants
-} from 'framer-motion'
+import { motion, useAnimationControls, Variants } from 'framer-motion'
 
 import Button from '../common/Button'
 
@@ -54,8 +49,9 @@ export default function HeroSection () {
   const controls = useAnimationControls()
 
   return (
-    <section className='relative min-h-screen flex items-center overflow-hidden'>
+    <section className='relative flex min-h-screen items-center overflow-hidden'>
       {/* Background Image */}
+
       <div className='absolute inset-0 z-0'>
         <Image
           src='/schoolbus.png'
@@ -67,21 +63,23 @@ export default function HeroSection () {
       </div>
 
       {/* Content */}
-      <div className='container mx-auto px-6 lg:px-16 relative z-10'>
-        <div className='grid lg:grid-cols-2 items-center gap-16'>
+
+      <div className='relative z-10 container mx-auto px-6 lg:px-16'>
+        <div className='grid items-center gap-16 lg:grid-cols-2'>
           {/* Left Side */}
+
           <motion.div
             variants={containerVariants}
             initial='hidden'
             animate='visible'
           >
-            <motion.div variants={itemVariants} className='mb-4'>
+            <motion.div variants={itemVariants} className='mb-5'>
               <Button text='Request a Demo' />
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
-              className='text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6'
+              className='hero-title mb-6'
               style={{ color: 'var(--teal-dark)' }}
             >
               Baato{' '}
@@ -90,7 +88,7 @@ export default function HeroSection () {
 
             <motion.p
               variants={itemVariants}
-              className='text-xl lg:text-2xl max-w-xl mb-10 leading-relaxed'
+              className='body-large mb-10 max-w-xl'
               style={{ color: 'var(--teal-dark)' }}
             >
               Real-time school bus tracking, instant notifications, student
@@ -106,17 +104,21 @@ export default function HeroSection () {
                 text='Download App'
                 href='https://play.google.com/store/apps/details?id=com.google.android.apps.classroom'
               />
-              <Button text='LearnMore' href='about' />
+
+              <Button text='Learn More' href='/about' />
             </motion.div>
           </motion.div>
 
           {/* Right Side */}
+
           <motion.div
             variants={imageVariants}
             initial='hidden'
             animate='visible'
             className='flex justify-center lg:justify-end'
-          ></motion.div>
+          >
+            {/* Future Hero Illustration / Mascot */}
+          </motion.div>
         </div>
       </div>
     </section>

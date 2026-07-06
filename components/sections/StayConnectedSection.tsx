@@ -10,9 +10,9 @@ export default function StayConnectedSection () {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7 }}
-      className='relative z-30 -mt-28 lg:-mt-32 -mb-28 lg:-mb-32'
+      className='relative z-30 -mb-28 -mt-28 lg:-mb-32 lg:-mt-32'
     >
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{
@@ -20,7 +20,7 @@ export default function StayConnectedSection () {
             repeat: Infinity,
             ease: 'easeInOut'
           }}
-          className='rounded-3xl border p-8 shadow-2xl lg:p-12 backdrop-blur-md'
+          className='rounded-3xl border p-8 shadow-2xl backdrop-blur-md lg:p-12'
           style={{
             background: 'var(--background)',
             borderColor: 'var(--border-light)'
@@ -32,7 +32,7 @@ export default function StayConnectedSection () {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className='mb-8 text-2xl font-bold uppercase lg:text-3xl'
+            className='heading-2 mb-8 uppercase'
             style={{
               color: 'var(--teal-dark)'
             }}
@@ -51,7 +51,7 @@ export default function StayConnectedSection () {
               transition={{ delay: 0.1 }}
             >
               <label
-                className='mb-2 block text-sm font-semibold'
+                className='body-text mb-2 block'
                 style={{
                   color: 'var(--text-mainlight)'
                 }}
@@ -64,7 +64,7 @@ export default function StayConnectedSection () {
                 whileFocus={{ scale: 1.02 }}
                 type='text'
                 placeholder='Enter your name'
-                className='h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
+                className='body-text h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
                 style={{
                   background: 'var(--text-highlight)',
                   color: 'var(--text-mainlight)',
@@ -82,7 +82,7 @@ export default function StayConnectedSection () {
               transition={{ delay: 0.2 }}
             >
               <label
-                className='mb-2 block text-sm font-semibold'
+                className='body-text mb-2 block'
                 style={{
                   color: 'var(--text-mainlight)'
                 }}
@@ -95,7 +95,7 @@ export default function StayConnectedSection () {
                 whileFocus={{ scale: 1.02 }}
                 type='tel'
                 placeholder='Phone number'
-                className='h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
+                className='body-text h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
                 style={{
                   background: 'var(--text-highlight)',
                   color: 'var(--text-mainlight)',
@@ -113,7 +113,7 @@ export default function StayConnectedSection () {
               transition={{ delay: 0.3 }}
             >
               <label
-                className='mb-2 block text-sm font-semibold'
+                className='body-text mb-2 block'
                 style={{
                   color: 'var(--text-mainlight)'
                 }}
@@ -126,7 +126,7 @@ export default function StayConnectedSection () {
                 whileFocus={{ scale: 1.02 }}
                 type='email'
                 placeholder='Email address'
-                className='h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
+                className='body-text h-12 w-full rounded-xl border px-4 outline-none transition-all duration-300 focus:ring-2'
                 style={{
                   background: 'var(--text-highlight)',
                   color: 'var(--text-mainlight)',
@@ -144,7 +144,7 @@ export default function StayConnectedSection () {
               transition={{ delay: 0.4 }}
               className='flex md:justify-end'
             >
-              <Button text='Submit' href='#' variant='primary' />
+              <Button text='Submit' href='#' />
             </motion.div>
           </form>
         </motion.div>

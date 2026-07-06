@@ -17,7 +17,7 @@ export default function PageHero ({
 }: PageHeroProps) {
   return (
     <section
-      className='relative h-[380px] md:h-[450px] flex items-center justify-center overflow-hidden'
+      className='relative flex h-[380px] items-center justify-center overflow-hidden md:h-[450px]'
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -30,36 +30,35 @@ export default function PageHero ({
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className='relative z-10 text-center px-6'
+        className='relative z-10 px-6 text-center'
       >
-        <h1
-          className='text-4xl md:text-5xl lg:text-6xl font-bold'
-          style={{ color: 'var(--teal-dark)' }}
-        >
+        <h1 className='hero-title' style={{ color: 'var(--teal-dark)' }}>
           {companyName}
         </h1>
 
-        <h2
-          className='mt-4 text-xl md:text-2xl font-medium'
-          style={{ color: 'var(--teal-primary)' }}
-        >
+        <h2 className='heading-3 mt-4' style={{ color: 'var(--teal-primary)' }}>
           {pageTitle}
         </h2>
       </motion.div>
 
       {/* Breadcrumb */}
-      <div className='absolute bottom-8 left-6 lg:left-12 z-10 flex items-center gap-2 text-sm'>
+      <div className='absolute bottom-8 left-6 z-10 flex items-center gap-2 lg:left-12'>
         <Link
           href='/'
-          className='transition hover:opacity-80'
+          className='nav-text transition hover:opacity-80'
           style={{ color: 'var(--teal-dark)' }}
         >
           Home
         </Link>
 
-        <FaChevronRight className='text-xs opacity-70' />
+        <FaChevronRight
+          className='text-xs opacity-70'
+          style={{ color: 'var(--teal-dark)' }}
+        />
 
-        <span style={{ color: 'var(--teal-dark)' }}>{pageTitle}</span>
+        <span className='nav-text' style={{ color: 'var(--teal-dark)' }}>
+          {pageTitle}
+        </span>
       </div>
     </section>
   )

@@ -7,26 +7,34 @@ export default function ContactMap () {
       style={{ backgroundColor: 'var(--background)' }}
     >
       {/* Heading */}
-      <div className='max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center'>
+      <div className='mx-auto max-w-7xl px-6 py-16 text-center lg:px-8'>
         <span
-          className='uppercase tracking-[0.25em] text-sm font-semibold'
+          className='section-label'
           style={{ color: 'var(--teal-primary)' }}
         >
           Find Us
         </span>
 
-        <h2
-          className='mt-3 text-3xl md:text-4xl font-bold'
-          style={{ color: 'var(--teal-dark)' }}
-        >
+        <h2 className='heading-2 mt-3' style={{ color: 'var(--teal-dark)' }}>
           Visit Our Office
         </h2>
+
+        {/* Uncomment if you want a description */}
+        {/*
+        <p
+          className='body-text mx-auto mt-4 max-w-2xl'
+          style={{ color: 'var(--text-mainlight)' }}
+        >
+          Visit our office to learn more about Baato Tracker and discover how
+          we help schools provide safer and smarter transportation.
+        </p>
+        */}
       </div>
 
       {/* Full Width Google Map */}
       <div className='w-full'>
         <iframe
-          title='Bato Tracker Location'
+          title='Baato Tracker Location'
           src='https://www.google.com/maps?q=Kathmandu,Nepal&output=embed'
           width='100%'
           height='550'

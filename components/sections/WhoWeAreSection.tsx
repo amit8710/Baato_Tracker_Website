@@ -53,33 +53,34 @@ const cardVariants: Variants = {
 export default function WhoWeAreSection () {
   return (
     <section
-      className='py-8 lg:py-12 overflow-hidden'
+      className='overflow-hidden py-8 lg:py-12'
       style={{
-        background: 'var(--text-muted)',
+        background: 'var(--background)',
         color: 'var(--foreground)'
       }}
     >
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-2 gap-6 lg:gap-8 items-center'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='grid items-center gap-6 lg:grid-cols-2 lg:gap-8'>
           {/* LEFT CONTENT */}
+
           <div className='max-w-xl'>
             <span
-              className='block text-sm font-semibold uppercase tracking-[0.2em] mb-2'
+              className='caption-text mb-2 block uppercase tracking-[0.2em]'
               style={{ color: 'var(--teal-dark)' }}
             >
               Who We Are
             </span>
 
             <h2
-              className='text-2xl md:text-3xl lg:text-[2rem] font-bold leading-tight mb-3'
+              className='heading-2 mb-3'
               style={{ color: 'var(--teal-primary)' }}
             >
               Smart School Transportation For Modern Schools
             </h2>
 
             <p
-              className='text-sm md:text-base leading-7 mb-5 max-w-lg'
-              style={{ color: 'var(--teal-light)' }}
+              className='body-text mb-5 max-w-lg'
+              style={{ color: 'var(--text-light1)' }}
             >
               Baato Tracker helps schools, parents, and drivers stay connected
               through real-time school bus tracking, instant notifications,
@@ -90,14 +91,16 @@ export default function WhoWeAreSection () {
           </div>
 
           {/* RIGHT SIDE */}
+
           <div className='relative flex justify-center lg:justify-end'>
             {/* FLOATING CARDS */}
+
             <motion.div
               variants={cardContainerVariants}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
-              className='hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 flex-col gap-3 z-10'
+              className='absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-3 lg:flex'
             >
               <motion.div
                 variants={cardVariants}
@@ -168,7 +171,8 @@ export default function WhoWeAreSection () {
             </motion.div>
 
             {/* PHONE MOCKUP */}
-            <div className='relative z-10 w-[340px] h-[650px] flex items-center justify-center'>
+
+            <div className='relative z-10 flex h-[650px] w-[340px] items-center justify-center'>
               <Image
                 src='/mobile2.png'
                 alt='Baato Tracker Mobile App'
@@ -177,17 +181,18 @@ export default function WhoWeAreSection () {
                 priority
               />
             </div>
-            {/* PHONE MOCKUP */}
+
+            {/* BACKGROUND GLOW */}
+
             <motion.div
               variants={phoneVariants}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
-              className='relative flex justify-center items-center'
+              className='relative flex items-center justify-center'
             >
-              {/* Soft Background Glow */}
               <div
-                className='absolute w-72 h-72 lg:w-80 lg:h-80 rounded-full blur-3xl opacity-20'
+                className='absolute h-72 w-72 rounded-full opacity-20 blur-3xl lg:h-80 lg:w-80'
                 style={{
                   backgroundColor: 'var(--teal-light)'
                 }}
@@ -197,7 +202,8 @@ export default function WhoWeAreSection () {
         </div>
 
         {/* MOBILE CARDS */}
-        <div className='lg:hidden mt-8 grid sm:grid-cols-2 gap-4 justify-items-center'>
+
+        <div className='mt-8 grid gap-4 justify-items-center sm:grid-cols-2 lg:hidden'>
           <FeatureCard
             icon={<FaMapMarkerAlt />}
             title='Real-time Tracking'
@@ -207,7 +213,7 @@ export default function WhoWeAreSection () {
           <FeatureCard
             icon={<FaBell />}
             title='Instant Alerts'
-            description='Pickup &drop notifications'
+            description='Pickup & drop notifications'
           />
 
           <FeatureCard

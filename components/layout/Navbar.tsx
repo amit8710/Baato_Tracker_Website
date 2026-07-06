@@ -9,11 +9,11 @@ import Button from '../common/Button'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/getapp', label: 'Get The App' },
-  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/website/getapp', label: 'Get The App' },
+  { href: '/website/how-it-works', label: 'How It Works' },
   // { href: '/news-updates', label: 'News & Updates' },
-  { href: '/about', label: 'About Us' },
-  { href: '/contact', label: 'Contact' }
+  { href: '/website/about', label: 'About Us' },
+  { href: '/website/contact', label: 'Contact' }
 ]
 
 export default function Navbar () {

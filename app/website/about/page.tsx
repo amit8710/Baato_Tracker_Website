@@ -15,7 +15,7 @@ export default function AboutPage () {
 
       <AboutSection />
       <CoreValues />
-      <TeamSection />
+      {/* <TeamSection /> */}
       <CTASection />
     </>
   )

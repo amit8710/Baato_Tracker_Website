@@ -1,13 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
+
 import ProcessCard from '@/components/cards/ProcessCard'
 import { processData } from '@/data/processData'
 
 export default function ProcessTimeline () {
   return (
     <section className='py-10' style={{ backgroundColor: 'var(--background)' }}>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -17,24 +18,21 @@ export default function ProcessTimeline () {
             duration: 0.9,
             ease: 'easeOut'
           }}
-          className='text-center max-w-3xl mx-auto mb-10'
+          className='mx-auto mb-10 max-w-3xl text-center'
         >
           <span
-            className='uppercase tracking-[0.2em] text-xs font-semibold'
+            className='section-label'
             style={{ color: 'var(--teal-primary)' }}
           >
             Step by Step
           </span>
 
-          <h2
-            className='mt-3 text-3xl lg:text-4xl font-bold'
-            style={{ color: 'var(--teal-dark)' }}
-          >
-            How Bato Tracker Works
+          <h2 className='heading-2 mt-3' style={{ color: 'var(--teal-dark)' }}>
+            How Baato Tracker Works
           </h2>
 
           <p
-            className='mt-4 text-base lg:text-lg leading-7'
+            className='body-text mt-4'
             style={{ color: 'var(--text-mainlight)' }}
           >
             From school registration to real-time notifications, every step is
@@ -57,9 +55,9 @@ export default function ProcessTimeline () {
 
               {/* Divider */}
               {index !== processData.length - 1 && (
-                <div className='flex justify-center mt-10'>
+                <div className='mt-10 flex justify-center'>
                   <div
-                    className='w-1 h-10 rounded-full'
+                    className='h-10 w-1 rounded-full'
                     style={{
                       backgroundColor: 'var(--teal-light)',
                       opacity: 0.3

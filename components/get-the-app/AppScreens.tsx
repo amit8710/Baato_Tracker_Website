@@ -1,4 +1,5 @@
 'use client'
+
 import ScreenCard from '../cards/ScreenCard'
 import { appScreenData } from '@/data/appScreenData'
 
@@ -17,26 +18,30 @@ export default function AppScreens () {
     >
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Heading */}
-        <div className='text-center max-w-2xl mx-auto mb-10'>
+        <div className='mx-auto mb-10 max-w-2xl text-center'>
           <span
-            className='uppercase tracking-[0.25em] text-xs font-semibold'
+            className='section-label'
             style={{ color: 'var(--text-highlight)' }}
           >
             App Screens
           </span>
+
           <h2
-            className='mt-3 text-2xl md:text-4xl font-bold'
+            className='heading-2 mt-3'
             style={{ color: 'var(--text-highlight)' }}
           >
             Explore the App
           </h2>
-          {/* <p
-            className='mt-3 text-sm md:text-base leading-7'
+
+          {/*
+          <p
+            className='body-text mt-4'
             style={{ color: 'var(--text-muted)' }}
           >
-            Explore every screen of Bato Tracker and discover how parents,
+            Explore every screen of Baato Tracker and discover how parents,
             schools and drivers stay connected through one powerful mobile app.
-          </p> */}
+          </p>
+          */}
         </div>
 
         {/* Swiper */}
@@ -44,11 +49,14 @@ export default function AppScreens () {
           <Swiper
             modules={[EffectCoverflow, Pagination, Autoplay]}
             effect='coverflow'
-            grabCursor={true}
-            centeredSlides={true}
+            grabCursor
+            centeredSlides
             slidesPerView='auto'
-            loop={true}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false
+            }}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,

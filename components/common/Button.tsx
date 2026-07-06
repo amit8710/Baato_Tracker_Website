@@ -8,7 +8,7 @@ type ButtonProps = {
 
 export default function Button ({ text, href, onClick }: ButtonProps) {
   const buttonStyles =
-    'bg-teal-primary hover:bg-teal-light text-white text-sm font-medium px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300'
+    'button-text inline-flex items-center justify-center rounded-full bg-teal-primary px-6 py-3 text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-light hover:shadow-xl'
 
   if (href) {
     return (
@@ -19,7 +19,7 @@ export default function Button ({ text, href, onClick }: ButtonProps) {
   }
 
   return (
-    <button onClick={onClick} className={buttonStyles}>
+    <button type='button' onClick={onClick} className={buttonStyles}>
       {text}
     </button>
   )

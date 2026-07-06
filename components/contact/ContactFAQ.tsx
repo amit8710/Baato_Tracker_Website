@@ -11,36 +11,35 @@ export default function ContactFAQ () {
 
   return (
     <section className='py-16' style={{ backgroundColor: 'var(--background)' }}>
-      <div className='max-w-5xl mx-auto px-6 lg:px-8'>
+      <div className='mx-auto max-w-5xl px-6 lg:px-8'>
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.2 }}
-          className='text-center mb-12'
+          className='mb-12 text-center'
         >
-          <span
-            className='uppercase tracking-[0.25em] text-sm font-semibold'
-            style={{ color: 'var(--teal-dark)' }}
-          >
+          <span className='section-label' style={{ color: 'var(--teal-dark)' }}>
             Frequently Asked Questions
           </span>
 
           <h2
-            className='mt-3 text-3xl md:text-4xl font-bold'
+            className='heading-2 mt-3'
             style={{ color: 'var(--teal-primary)' }}
           >
             Have Questions?
           </h2>
 
-          {/* <p
-            className='mt-4 max-w-2xl mx-auto leading-7'
+          {/* Uncomment if needed
+          <p
+            className='body-text mx-auto mt-4 max-w-2xl'
             style={{ color: 'var(--text-muted)' }}
           >
-            Find answers to the most common questions about Bato Tracker,
+            Find answers to the most common questions about Baato Tracker,
             student safety, GPS tracking, and our services.
-          </p> */}
+          </p>
+          */}
         </motion.div>
 
         {/* FAQ List */}

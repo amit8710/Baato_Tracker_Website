@@ -6,16 +6,15 @@ import { motion } from 'framer-motion'
 import Button from '@/components/common/Button'
 import FeatureCard from '../cards/FeatureCard'
 import { experienceData } from '@/data/experienceData'
-import ExperienceItem from '../cards/ExperienceItem'
 
 export default function AppExperience () {
   return (
     <section
       className='py-24 lg:py-32'
-      style={{ backgroundColor: 'var (--background)' }}
+      style={{ backgroundColor: 'var(--background)' }}
     >
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-[0.9fr_1.1fr] gap-16 xl:gap-24 items-center'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr] xl:gap-24'>
           {/* Left Image */}
           <motion.div
             className='max-w-xl'
@@ -29,11 +28,11 @@ export default function AppExperience () {
           >
             <Image
               src='/mobile2.png'
-              alt='Bato Tracker Mobile App'
+              alt='Baato Tracker Mobile App'
               width={340}
               height={620}
               priority
-              className='w-[260px] md:w-[300px] lg:w-[340px] h-auto object-contain'
+              className='h-auto w-[260px] object-contain md:w-[300px] lg:w-[340px]'
             />
           </motion.div>
 
@@ -48,14 +47,14 @@ export default function AppExperience () {
             }}
           >
             <span
-              className='uppercase tracking-[0.25em] text-sm font-semibold'
+              className='section-label'
               style={{ color: 'var(--teal-primary)' }}
             >
               Mobile Experience
             </span>
 
             <h2
-              className='mt-3 text-2xl md:text-4xl font-bold leading-tight'
+              className='heading-2 mt-3'
               style={{ color: 'var(--teal-dark)' }}
             >
               Everything You Need,
@@ -64,16 +63,16 @@ export default function AppExperience () {
             </h2>
 
             <p
-              className='mt-4 text-base leading-7'
+              className='body-text mt-4 max-w-2xl'
               style={{ color: 'var(--text-mainlight)' }}
             >
-              The Bato Tracker mobile app helps parents, schools and drivers
-              stay connected through live GPS tracking, instant notifications
+              The Baato Tracker mobile app helps parents, schools, and drivers
+              stay connected through live GPS tracking, instant notifications,
               and an intuitive interface designed for everyday use.
             </p>
 
-            {/* Experience List */}
-            <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8'>
+            {/* Experience Cards */}
+            <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:gap-8'>
               {experienceData.map(item => {
                 const Icon = item.icon
 

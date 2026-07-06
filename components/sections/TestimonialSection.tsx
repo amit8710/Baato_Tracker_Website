@@ -14,12 +14,12 @@ import { testimonialData } from '@/data/testimonialData'
 export default function TestimonialSection () {
   return (
     <section
-      className='relative pt-10 pb-52 overflow-visible'
+      className='relative overflow-visible pb-52 pt-10'
       style={{
         background: 'var(--teal-light)'
       }}
     >
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         {/* Heading */}
 
         <motion.div
@@ -27,10 +27,10 @@ export default function TestimonialSection () {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className='text-center mb-8'
+          className='mb-8 text-center'
         >
           <span
-            className='uppercase tracking-[0.25em] text-xs font-semibold'
+            className='button-text uppercase tracking-[0.25em]'
             style={{
               color: 'var(--text-highlight)'
             }}
@@ -39,7 +39,7 @@ export default function TestimonialSection () {
           </span>
 
           <h2
-            className='mt-2 text-2xl md:text-3xl lg:text-4xl font-bold'
+            className='heading-2 mt-3'
             style={{
               color: 'var(--text-highlight)'
             }}
