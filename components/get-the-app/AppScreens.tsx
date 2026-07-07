@@ -1,6 +1,6 @@
 'use client'
 
-import ScreenCard from '../cards/ScreenCard'
+import ScreenCard from '../cards/ScreenCArd'
 import { appScreenData } from '@/data/appScreenData'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
