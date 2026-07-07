@@ -75,16 +75,19 @@ export default function WhoWeAreSection () {
               className='heading-2 mb-3'
               style={{ color: 'var(--teal-primary)' }}
             >
-              Smart School Transportation For Modern Schools
+              Connecting Schools, Parents & Students Through Smarter
+              Transportation
             </h2>
 
             <p
               className='body-text mb-5 max-w-lg'
               style={{ color: 'var(--text-light1)' }}
             >
-              Baato Tracker helps schools, parents, and drivers stay connected
-              through real-time school bus tracking, instant notifications,
-              route monitoring, and enhanced student safety.
+              Baato is a modern school transportation platform built to make
+              every school journey safer, smarter, and more transparent. We
+              empower schools with intelligent tracking while giving parents
+              peace of mind through real-time visibility and reliable
+              communication.
             </p>
 
             <Button text='More About Us' href='/about' />
@@ -113,8 +116,7 @@ export default function WhoWeAreSection () {
               >
                 <FeatureCard
                   icon={<FaMapMarkerAlt />}
-                  title='Real-time Tracking'
-                  description='Live location updates'
+                  title='School Transport'
                 />
               </motion.div>
 
@@ -128,11 +130,7 @@ export default function WhoWeAreSection () {
                   ease: 'easeInOut'
                 }}
               >
-                <FeatureCard
-                  icon={<FaBell />}
-                  title='Instant Alerts'
-                  description='Pickup & drop notifications'
-                />
+                <FeatureCard icon={<FaBell />} title='Geo- fencing' />
               </motion.div>
 
               <motion.div
@@ -147,8 +145,7 @@ export default function WhoWeAreSection () {
               >
                 <FeatureCard
                   icon={<FaShieldAlt />}
-                  title='Safe & Secure'
-                  description="Your child's safety is our priority"
+                  title='Trusted by Parents'
                 />
               </motion.div>
 
@@ -162,11 +159,7 @@ export default function WhoWeAreSection () {
                   ease: 'easeInOut'
                 }}
               >
-                <FeatureCard
-                  icon={<FaChartBar />}
-                  title='Smart & Reliable'
-                  description='Efficient routes and on-time updates'
-                />
+                <FeatureCard icon={<FaChartBar />} title='Student Safety' />
               </motion.div>
             </motion.div>
 
@@ -204,29 +197,13 @@ export default function WhoWeAreSection () {
         {/* MOBILE CARDS */}
 
         <div className='mt-8 grid gap-4 justify-items-center sm:grid-cols-2 lg:hidden'>
-          <FeatureCard
-            icon={<FaMapMarkerAlt />}
-            title='Real-time Tracking'
-            description='Live location updates'
-          />
+          <FeatureCard icon={<FaMapMarkerAlt />} title='School Transport' />
 
-          <FeatureCard
-            icon={<FaBell />}
-            title='Instant Alerts'
-            description='Pickup & drop notifications'
-          />
+          <FeatureCard icon={<FaBell />} title='Geo-fencing' />
 
-          <FeatureCard
-            icon={<FaShieldAlt />}
-            title='Safe & Secure'
-            description="Your child's safety is our priority"
-          />
+          <FeatureCard icon={<FaShieldAlt />} title='Trusted by Parents' />
 
-          <FeatureCard
-            icon={<FaChartBar />}
-            title='Smart & Reliable'
-            description='Efficient routes and on-time updates'
-          />
+          <FeatureCard icon={<FaChartBar />} title='Student Safety' />
         </div>
       </div>
     </section>

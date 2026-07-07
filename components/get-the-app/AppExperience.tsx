@@ -78,11 +78,7 @@ export default function AppExperience () {
 
                 return (
                   <div key={item.id} className='flex'>
-                    <FeatureCard
-                      icon={<Icon />}
-                      title={item.title}
-                      description={item.description}
-                    />
+                    <FeatureCard icon={<Icon />} title={item.title} />
                   </div>
                 )
               })}

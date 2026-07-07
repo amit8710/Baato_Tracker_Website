@@ -42,7 +42,7 @@ export default function FeaturesAction () {
 
         {/* Features Grid */}
         <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
-          {featureActionData.map(feature => (
+          {featureActionData.map((feature, index) => (
             <div
               key={feature.id}
               className='transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg'
@@ -51,6 +51,7 @@ export default function FeaturesAction () {
                 icon={feature.icon}
                 title={feature.title}
                 description={feature.description}
+                index={index}
               />
             </div>
           ))}
