@@ -14,7 +14,7 @@
     "jsx": "react-jsx",
     "incremental": true,
 
-    "baseUrl": ".", // 👈 Add this
+    "baseUrl": ".",
     "ignoreDeprecations": "6.0",
 
     "plugins": [
