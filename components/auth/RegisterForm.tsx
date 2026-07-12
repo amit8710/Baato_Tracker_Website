@@ -106,20 +106,45 @@ export default function RegisterForm ({ onRegisterSuccess }: RegisterFormProps) 
       />
 
       {error && (
-        <div className='rounded-lg bg-red-100 p-3 text-sm text-red-600'>
+        <div
+          className='small-text rounded-xl px-4 py-3'
+          style={{
+            background: 'rgba(220, 38, 38, 0.08)',
+            color: 'var(--status-danger)',
+            border: '1px solid rgba(220, 38, 38, 0.15)'
+          }}
+        >
           {error}
         </div>
       )}
 
       {success && (
-        <div className='rounded-lg bg-green-100 p-3 text-sm text-green-600'>
+        <div
+          className='small-text rounded-xl px-4 py-3'
+          style={{
+            background: 'rgba(22, 163, 74, 0.08)',
+            color: 'var(--status-success)',
+            border: '1px solid rgba(22, 163, 74, 0.15)'
+          }}
+        >
           {success}
         </div>
       )}
 
       <button
         type='submit'
-        className='w-full rounded-xl bg-teal-600 py-3 font-semibold text-white transition hover:bg-teal-700'
+        className='button-text w-full rounded-xl py-3 transition-all duration-300 hover:-translate-y-0.5'
+        style={{
+          background: 'var(--teal-primary)',
+          color: 'var(--text-highlight)',
+          boxShadow: '0 8px 24px rgba(13, 148, 136, 0.2)'
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = 'var(--teal-dark)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = 'var(--teal-primary)'
+        }}
       >
         Create Account
       </button>

@@ -1,108 +1,170 @@
-import { HiShieldCheck, HiTruck } from 'react-icons/hi2'
+'use client'
+
+import {
+  HiTruck,
+  HiUser,
+  HiPhone,
+  HiIdentification,
+  HiMap,
+  HiUsers,
+  HiShieldCheck
+} from 'react-icons/hi2'
 
 export default function DriverInformation () {
   return (
-    <section className='rounded-3xl border border-slate-200 bg-white p-6'>
+    <section
+      className='rounded-3xl p-6'
+      style={{
+        background: 'var(--text-highlight)',
+        border: '1px solid var(--admin-border)',
+        boxShadow: 'var(--admin-shadow)'
+      }}
+    >
       {/* Header */}
-      <div className='mb-6 flex items-center gap-3'>
-        <div
-          className='flex h-12 w-12 items-center justify-center rounded-xl text-white'
-          style={{ background: 'var(--teal-primary)' }}
+
+      <div className='mb-8 flex items-center justify-between'>
+        <div className='flex items-center gap-4'>
+          <div
+            className='flex h-14 w-14 items-center justify-center rounded-2xl'
+            style={{
+              background: 'var(--teal-primary)',
+              color: 'var(--text-highlight)'
+            }}
+          >
+            <HiTruck size={28} />
+          </div>
+
+          <div>
+            <h2 className='heading-4'>Driver & Bus Information</h2>
+
+            <p className='small-text'>Today's assigned school transportation</p>
+          </div>
+        </div>
+
+        <span
+          className='rounded-full px-4 py-2 text-sm font-semibold'
+          style={{
+            background: 'rgba(22,163,74,.12)',
+            color: 'var(--status-success)'
+          }}
         >
-          <HiTruck size={24} />
+          ● On Route
+        </span>
+      </div>
+
+      {/* Driver */}
+
+      <div
+        className='mb-8 flex items-center gap-5 rounded-2xl p-5'
+        style={{
+          background: 'var(--background)',
+          border: '1px solid var(--admin-border)'
+        }}
+      >
+        <div
+          className='flex h-20 w-20 items-center justify-center rounded-full'
+          style={{
+            background: 'var(--teal-primary)',
+            color: 'var(--text-highlight)'
+          }}
+        >
+          <HiUser size={42} />
         </div>
 
         <div>
-          <h2
-            className='text-xl font-semibold'
-            style={{ color: 'var(--text-mainlight)' }}
-          >
-            Driver & Bus Information
-          </h2>
+          <h3 className='heading-4'>Ram Bahadur</h3>
 
-          <p className='text-sm' style={{ color: 'var(--text-light1)' }}>
-            Contact information for today's assigned school bus.
-          </p>
+          <p className='body-text'>School Bus Driver</p>
         </div>
       </div>
 
-      {/* Driver Information */}
-      <div
-        className='overflow-hidden rounded-2xl border border-slate-200'
-        style={{ background: 'var(--background)' }}
-      >
-        <InfoRow label='Driver Name' value='Ram Bahadur' />
+      {/* Information */}
 
-        <InfoRow label='Phone Number' value='+977 98XXXXXXXX' />
+      <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+        <InfoCard
+          icon={<HiPhone size={22} />}
+          label='Phone Number'
+          value='+977 98XXXXXXXX'
+        />
 
-        <InfoRow label='Bus Number' value='BA 2 KHA 1234' />
+        <InfoCard
+          icon={<HiTruck size={22} />}
+          label='Bus Number'
+          value='BA 2 KHA 1234'
+        />
 
-        <InfoRow label='Driver ID' value='DRV-2031' />
+        <InfoCard
+          icon={<HiIdentification size={22} />}
+          label='Driver ID'
+          value='DRV-2031'
+        />
 
-        <InfoRow label='Bus Route' value='Baneshwor → ABC School' />
+        <InfoCard
+          icon={<HiMap size={22} />}
+          label='Bus Route'
+          value='Baneshwor → ABC School'
+        />
 
-        <InfoRow label='Vehicle Capacity' value='40 Students' last />
-      </div>
+        <InfoCard
+          icon={<HiUsers size={22} />}
+          label='Vehicle Capacity'
+          value='40 Students'
+        />
 
-      {/* Emergency Contact */}
-      <div
-        className='mt-6 rounded-2xl border border-slate-200 p-5'
-        style={{ background: 'var(--background)' }}
-      >
-        <div className='flex items-start gap-4'>
-          <HiShieldCheck size={26} style={{ color: 'var(--teal-primary)' }} />
-
-          <div>
-            <h3
-              className='font-semibold'
-              style={{ color: 'var(--text-mainlight)' }}
-            >
-              Emergency Contact
-            </h3>
-
-            <p className='mt-1 text-sm' style={{ color: 'var(--text-light1)' }}>
-              School Transport Office
-            </p>
-
-            <p
-              className='mt-2 text-lg font-semibold'
-              style={{ color: 'var(--teal-primary)' }}
-            >
-              +977 01-XXXXXXX
-            </p>
-          </div>
-        </div>
+        <InfoCard
+          icon={<HiTruck size={22} />}
+          label='Vehicle Type'
+          value='School Bus'
+        />
       </div>
     </section>
   )
 }
 
-interface InfoRowProps {
+interface InfoCardProps {
+  icon: React.ReactNode
   label: string
   value: string
-  last?: boolean
 }
 
-function InfoRow ({ label, value, last = false }: InfoRowProps) {
+function InfoCard ({ icon, label, value }: InfoCardProps) {
   return (
     <div
-      className={`flex items-center justify-between px-6 py-4 ${
-        !last ? 'border-b border-slate-200' : ''
-      }`}
+      className='flex items-center gap-4 rounded-2xl p-4'
+      style={{
+        background: 'var(--background)',
+        border: '1px solid var(--admin-border)'
+      }}
     >
-      <p
-        className='w-44 text-sm font-medium'
-        style={{ color: 'var(--text-light1)' }}
+      <div
+        className='flex h-11 w-11 items-center justify-center rounded-xl'
+        style={{
+          background: 'rgba(13,148,136,.10)',
+          color: 'var(--teal-primary)'
+        }}
       >
-        {label}
-      </p>
+        {icon}
+      </div>
 
-      <p
-        className='flex-1 text-right text-sm font-semibold'
-        style={{ color: 'var(--text-mainlight)' }}
-      >
-        {value}
-      </p>
+      <div>
+        <p
+          className='small-text'
+          style={{
+            opacity: 0.75
+          }}
+        >
+          {label}
+        </p>
+
+        <p
+          className='button-text'
+          style={{
+            color: 'var(--text-mainlight)'
+          }}
+        >
+          {value}
+        </p>
+      </div>
     </div>
   )
 }

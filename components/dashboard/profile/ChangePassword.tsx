@@ -1,79 +1,164 @@
 'use client'
 
-import { HiKey } from 'react-icons/hi2'
+import { useState } from 'react'
+import { HiCheckCircle, HiEye, HiEyeSlash, HiKey } from 'react-icons/hi2'
 
 export default function ChangePassword () {
+  const [currentPassword, setCurrentPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const [showCurrent, setShowCurrent] = useState(false)
+  const [showNew, setShowNew] = useState(false)
+  const [showConfirm, setShowConfirm] = useState(false)
+
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState('')
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    setError('')
+    setMessage('')
+
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      setError('Please fill in all fields.')
+      return
+    }
+
+    if (newPassword.length < 8) {
+      setError('New password must be at least 8 characters long.')
+      return
+    }
+
+    if (newPassword !== confirmPassword) {
+      setError('Passwords do not match.')
+      return
+    }
+
+    setLoading(true)
+
+    // Frontend preview
+    setTimeout(() => {
+      setLoading(false)
+
+      setCurrentPassword('')
+      setNewPassword('')
+      setConfirmPassword('')
+
+      setMessage('Password updated successfully.')
+    }, 1200)
+  }
+
   return (
     <section className='rounded-3xl border border-slate-200 bg-white p-6'>
       {/* Header */}
-      <div className='mb-6'>
-        <h2
-          className='text-xl font-semibold'
-          style={{ color: 'var(--text-mainlight)' }}
-        >
-          Change Password
-        </h2>
+      <div className='mb-8'>
+        <h2 className='heading-3'>Change Password</h2>
 
-        <p className='mt-1 text-sm' style={{ color: 'var(--text-light1)' }}>
-          Update your account password to keep your account secure.
+        <p className='small-text mt-1'>
+          Keep your account secure by choosing a strong password.
         </p>
       </div>
 
-      <form className='space-y-5'>
-        <InputField
+      {/* Form */}
+      <form onSubmit={handleSubmit} className='space-y-6'>
+        <PasswordField
           label='Current Password'
-          type='password'
-          placeholder='Enter current password'
+          value={currentPassword}
+          setValue={setCurrentPassword}
+          visible={showCurrent}
+          setVisible={setShowCurrent}
+          placeholder='Enter your current password'
         />
 
-        <InputField
+        <PasswordField
           label='New Password'
-          type='password'
-          placeholder='Enter new password'
+          value={newPassword}
+          setValue={setNewPassword}
+          visible={showNew}
+          setVisible={setShowNew}
+          placeholder='Enter your new password'
         />
 
-        <InputField
-          label='Confirm New Password'
-          type='password'
-          placeholder='Confirm new password'
+        <PasswordField
+          label='Confirm Password'
+          value={confirmPassword}
+          setValue={setConfirmPassword}
+          visible={showConfirm}
+          setVisible={setShowConfirm}
+          placeholder='Confirm your new password'
         />
 
-        <div className='pt-2'>
-          <button
-            type='submit'
-            className='flex items-center gap-2 rounded-xl px-6 py-3 font-medium text-white transition hover:opacity-90'
-            style={{ background: 'var(--teal-primary)' }}
-          >
-            <HiKey size={18} />
-            Update Password
-          </button>
-        </div>
+        {error && (
+          <div className='rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600'>
+            {error}
+          </div>
+        )}
+
+        {message && (
+          <div className='flex items-center gap-2 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700'>
+            <HiCheckCircle size={18} />
+            {message}
+          </div>
+        )}
+
+        <button
+          type='submit'
+          disabled={loading}
+          className='button-text flex items-center gap-2 rounded-xl px-6 py-3 text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60'
+          style={{
+            background: 'var(--teal-primary)'
+          }}
+        >
+          <HiKey size={18} />
+
+          {loading ? 'Updating Password...' : 'Update Password'}
+        </button>
       </form>
     </section>
   )
 }
 
-interface InputFieldProps {
+interface PasswordFieldProps {
   label: string
-  type: string
+  value: string
+  setValue: React.Dispatch<React.SetStateAction<string>>
+  visible: boolean
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>
   placeholder: string
 }
 
-function InputField ({ label, type, placeholder }: InputFieldProps) {
+function PasswordField ({
+  label,
+  value,
+  setValue,
+  visible,
+  setVisible,
+  placeholder
+}: PasswordFieldProps) {
   return (
     <div>
-      <label
-        className='mb-2 block text-sm font-medium'
-        style={{ color: 'var(--text-mainlight)' }}
-      >
-        {label}
-      </label>
+      <label className='label-text mb-2 block'>{label}</label>
 
-      <input
-        type={type}
-        placeholder={placeholder}
-        className='w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-teal-600'
-      />
+      <div className='relative'>
+        <input
+          type={visible ? 'text' : 'password'}
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          placeholder={placeholder}
+          className='w-full rounded-xl border border-slate-300 bg-white px-4 py-3 pr-12 outline-none transition focus:border-[var(--teal-primary)]'
+        />
+
+        <button
+          type='button'
+          onClick={() => setVisible(!visible)}
+          className='absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-light1)] transition hover:text-[var(--teal-primary)]'
+        >
+          {visible ? <HiEyeSlash size={20} /> : <HiEye size={20} />}
+        </button>
+      </div>
     </div>
   )
 }

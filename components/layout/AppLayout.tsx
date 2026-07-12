@@ -13,18 +13,18 @@ interface AppLayoutProps {
 export default function AppLayout ({ children }: AppLayoutProps) {
   const pathname = usePathname()
 
-  const isDashboard =
-    pathname.startsWith('/dashboard') || pathname.startsWith('/profile')
+  // Hide Navbar, Footer and Chat on all admin pages
+  const isAdminPage = pathname.startsWith('/admin')
 
   return (
     <>
-      {!isDashboard && <Navbar />}
+      {!isAdminPage && <Navbar />}
 
       <main className='flex-1 w-full'>{children}</main>
 
-      {!isDashboard && <TawkChat />}
+      {!isAdminPage && <TawkChat />}
 
-      {!isDashboard && <Footer />}
+      {!isAdminPage && <Footer />}
     </>
   )
 }

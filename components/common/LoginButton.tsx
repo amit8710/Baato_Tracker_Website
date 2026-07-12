@@ -5,8 +5,8 @@ import Link from 'next/link'
 export default function LoginButton () {
   return (
     <Link
-      href='/login'
-      className='button-text inline-flex items-center justify-center rounded-full border-2 border-teal-primary px-6 py-3 text-teal-primary shadow-lg transition-all duration-300 hover:bg-teal-primary hover:text-white'
+      href='/admin/login'
+      className='button-text inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-teal-primary shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg'
     >
       Login
     </Link>

@@ -15,7 +15,7 @@
     "incremental": true,
 
     "baseUrl": ".", // 👈 Add this
-    "ignoreDeprecations": "5.0",
+    "ignoreDeprecations": "6.0",
 
     "plugins": [
       {

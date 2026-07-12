@@ -28,10 +28,10 @@ export default function Footer () {
           <div>
             <div className='mb-5 flex items-center gap-3'>
               <Image
-                src='/logo.png'
+                src='/logo1.png'
                 alt='Baato Tracker'
-                width={55}
-                height={55}
+                width={95}
+                height={95}
               />
 
               <h2

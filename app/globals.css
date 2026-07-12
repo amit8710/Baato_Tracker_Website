@@ -23,6 +23,17 @@
 
   /* Border */
   --border-light: rgba(255, 255, 255, 0.1);
+
+  /* Admin */
+  --admin-sidebar-bg: var(--text-highlight);
+  --admin-hover: #f1f5f9;
+  --admin-border: rgba(15, 118, 110, 0.08);
+  --admin-shadow: 0 8px 24px rgba(15, 118, 110, 0.08);
+
+  --admin-card-bg: #ffffff;
+  --admin-card-hover: #f8fafc;
+  --admin-input-bg: #f8fafc;
+  --admin-navbar-height: 80px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,9 +69,10 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Navbar */
@@ -170,15 +182,6 @@ body {
 .app-screen-swiper .swiper-slide-active:active {
   cursor: grabbing;
 }
-/* Hide scrollbar */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
 
 /* Responsive */
 
@@ -264,8 +267,11 @@ body {
 /* Buttons */
 
 .button-text {
-  font-size: 1rem;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 0.95rem;
   font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
 /* Navigation */
@@ -273,6 +279,15 @@ body {
 .nav-text {
   font-size: 1rem;
   font-weight: 500;
+}
+
+/* Logo */
+
+.logo-text {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 768px) {
@@ -295,18 +310,4 @@ body {
   .heading-3 {
     font-size: 1.3rem;
   }
-}
-.logo-text {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.button-text {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
 }

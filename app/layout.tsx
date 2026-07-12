@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
 import AppNavbar from '@/components/layout/AppLayout'
-
 import { AuthProvider } from '@/context/AuthContext'
 
 const geistSans = Geist({
@@ -19,7 +18,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Baato Tracker - Smart School Bus Tracking System',
   description:
-    'Real-time school bus tracking system for student safety and live updates.'
+    'Real-time school bus tracking system for student safety and live updates.',
+  icons: {
+    icon: '/logo1.png',
+    shortcut: '/logo1.png',
+    apple: '/logo1.png'
+  }
 }
 
 export default function RootLayout ({

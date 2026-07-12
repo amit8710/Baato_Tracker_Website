@@ -29,10 +29,10 @@ export default function Navbar () {
           {/* Logo */}
           <Link href='/' className='flex items-center gap-3'>
             <Image
-              src='/logo.png'
+              src='/logo1.png'
               alt='Baato Tracker Logo'
-              width={48}
-              height={48}
+              width={98}
+              height={98}
               priority
             />
 
@@ -56,7 +56,7 @@ export default function Navbar () {
           {/* Desktop Buttons */}
           <div className='hidden lg:flex items-center gap-3'>
             <LoginButton />
-            <Button text='Request Demo' href='/contact' />
+            <Button text='Request a Demo' href='/contact' />
           </div>
 
           {/* Mobile Toggle */}
@@ -106,7 +106,7 @@ export default function Navbar () {
               }}
             >
               <LoginButton />
-              <Button text='Request Demo' href='/contact' />
+              <Button text='Request Demo' href='/website/contact' />
             </div>
           </div>
         </div>

@@ -1,82 +1,179 @@
-import { HiPencilSquare } from 'react-icons/hi2'
+'use client'
 
-export default function PersonalInformation () {
+import { Dispatch, SetStateAction, useState } from 'react'
+import { HiCheck, HiPencilSquare, HiXMark } from 'react-icons/hi2'
+
+interface ParentProfile {
+  fullName: string
+  email: string
+  phone: string
+  address: string
+  parentId: string
+  childName: string
+  profileImage: string
+}
+
+interface PersonalInformationProps {
+  parent: ParentProfile
+  setParent: Dispatch<SetStateAction<ParentProfile>>
+}
+
+export default function PersonalInformation ({
+  parent,
+  setParent
+}: PersonalInformationProps) {
+  const [isEditing, setIsEditing] = useState(false)
+  const [formData, setFormData] = useState(parent)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSave = () => {
+    setParent(formData)
+    setIsEditing(false)
+  }
+
+  const handleCancel = () => {
+    setFormData(parent)
+    setIsEditing(false)
+  }
+
   return (
     <section className='rounded-3xl border border-slate-200 bg-white p-6'>
       {/* Header */}
-      <div className='mb-6 flex items-center justify-between'>
+      <div className='mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
         <div>
-          <h2
-            className='text-xl font-semibold'
-            style={{ color: 'var(--text-mainlight)' }}
-          >
-            Personal Information
-          </h2>
+          <h2 className='heading-3'>Personal Information</h2>
 
-          <p className='mt-1 text-sm' style={{ color: 'var(--text-light1)' }}>
+          <p className='small-text mt-1'>
             Review and manage your personal account information.
           </p>
         </div>
 
-        <button
-          className='flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition hover:opacity-90'
-          style={{
-            background: 'var(--teal-primary)',
-            color: '#fff'
-          }}
-        >
-          <HiPencilSquare size={18} />
-          Edit Information
-        </button>
+        {!isEditing ? (
+          <button
+            type='button'
+            onClick={() => setIsEditing(true)}
+            className='button-text flex items-center gap-2 rounded-xl px-5 py-2.5 text-white transition hover:opacity-90'
+            style={{
+              background: 'var(--teal-primary)'
+            }}
+          >
+            <HiPencilSquare size={18} />
+            Edit Information
+          </button>
+        ) : (
+          <div className='flex gap-3'>
+            <button
+              type='button'
+              onClick={handleSave}
+              className='button-text flex items-center gap-2 rounded-xl bg-green-600 px-5 py-2.5 text-white transition hover:opacity-90'
+            >
+              <HiCheck size={18} />
+              Save
+            </button>
+
+            <button
+              type='button'
+              onClick={handleCancel}
+              className='button-text flex items-center gap-2 rounded-xl bg-slate-500 px-5 py-2.5 text-white transition hover:opacity-90'
+            >
+              <HiXMark size={18} />
+              Cancel
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Information */}
-      <div
-        className='overflow-hidden rounded-2xl border border-slate-200'
-        style={{ background: 'var(--background)' }}
-      >
-        <InfoRow label='Full Name' value='Amit Basnet' />
+      <div className='grid gap-6 md:grid-cols-2'>
+        <InputField
+          label='Full Name'
+          name='fullName'
+          value={formData.fullName}
+          editable={isEditing}
+          onChange={handleChange}
+        />
 
-        <InfoRow label='Email Address' value='amit@email.com' />
+        <InputField
+          label='Email Address'
+          name='email'
+          value={formData.email}
+          editable={isEditing}
+          onChange={handleChange}
+        />
 
-        <InfoRow label='Phone Number' value='+977 98XXXXXXXX' />
+        <InputField
+          label='Phone Number'
+          name='phone'
+          value={formData.phone}
+          editable={isEditing}
+          onChange={handleChange}
+        />
 
-        <InfoRow label='Address' value='Kathmandu, Nepal' />
+        <InputField
+          label='Address'
+          name='address'
+          value={formData.address}
+          editable={isEditing}
+          onChange={handleChange}
+        />
 
-        <InfoRow label='Parent ID' value='PAR-1001' />
+        <InputField
+          label='Parent ID'
+          name='parentId'
+          value={formData.parentId}
+          editable={false}
+          onChange={handleChange}
+        />
 
-        <InfoRow label='Registered Child' value='Aarav Basnet' last />
+        <InputField
+          label='Registered Child'
+          name='childName'
+          value={formData.childName}
+          editable={false}
+          onChange={handleChange}
+        />
       </div>
     </section>
   )
 }
 
-interface InfoRowProps {
+interface InputFieldProps {
   label: string
+  name: string
   value: string
-  last?: boolean
+  editable: boolean
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-function InfoRow ({ label, value, last = false }: InfoRowProps) {
+function InputField ({
+  label,
+  name,
+  value,
+  editable,
+  onChange
+}: InputFieldProps) {
   return (
-    <div
-      className={`flex items-center justify-between px-6 py-4 ${
-        !last ? 'border-b border-slate-200' : ''
-      }`}
-    >
-      <p
-        className='w-48 text-sm font-medium'
-        style={{ color: 'var(--text-light1)' }}
-      >
-        {label}
-      </p>
+    <div>
+      <label className='label-text mb-2 block'>{label}</label>
 
-      <p
-        className='flex-1 text-right text-sm font-semibold'
-        style={{ color: 'var(--text-mainlight)' }}
-      >
-        {value}
-      </p>
+      <input
+        type='text'
+        name={name}
+        value={value}
+        onChange={onChange}
+        disabled={!editable}
+        className={`w-full rounded-xl border px-4 py-3 outline-none transition ${
+          editable
+            ? 'border-slate-300 bg-white focus:border-[var(--teal-primary)]'
+            : 'cursor-not-allowed border-slate-200 bg-slate-100 text-slate-500'
+        }`}
+      />
     </div>
   )
 }

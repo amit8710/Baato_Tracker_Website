@@ -9,7 +9,6 @@ import { useAuth } from '@/context/AuthContext'
 
 export default function LoginForm () {
   const router = useRouter()
-
   const { login } = useAuth()
 
   const [email, setEmail] = useState('')
@@ -25,7 +24,7 @@ export default function LoginForm () {
       login(email, password)
 
       // Redirect to Dashboard
-      router.push('/dashboard')
+      router.push('/admin/dashboard')
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)
@@ -53,14 +52,32 @@ export default function LoginForm () {
       />
 
       {error && (
-        <div className='rounded-lg bg-red-100 px-4 py-3 text-sm text-red-600'>
+        <div
+          className='small-text rounded-xl px-4 py-3'
+          style={{
+            background: 'rgba(220, 38, 38, 0.08)',
+            color: 'var(--status-danger)',
+            border: '1px solid rgba(220, 38, 38, 0.15)'
+          }}
+        >
           {error}
         </div>
       )}
 
       <button
         type='submit'
-        className='w-full rounded-xl bg-teal-600 py-3 font-semibold text-white transition hover:bg-teal-700'
+        className='button-text w-full rounded-xl py-3 transition-all duration-300 hover:-translate-y-0.5'
+        style={{
+          background: 'var(--teal-primary)',
+          color: 'var(--text-highlight)',
+          boxShadow: '0 8px 24px rgba(13, 148, 136, 0.2)'
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = 'var(--teal-dark)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = 'var(--teal-primary)'
+        }}
       >
         Login
       </button>

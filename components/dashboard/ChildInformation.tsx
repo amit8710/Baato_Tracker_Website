@@ -1,86 +1,182 @@
-import { HiAcademicCap } from 'react-icons/hi2'
+'use client'
+
+import {
+  HiAcademicCap,
+  HiUser,
+  HiBuildingOffice2,
+  HiTruck,
+  HiMapPin,
+  HiClock,
+  HiPhone
+} from 'react-icons/hi2'
 
 export default function ChildInformation () {
   return (
-    <section className='rounded-3xl border border-slate-200 bg-white p-6'>
+    <section
+      className='rounded-3xl p-6'
+      style={{
+        background: 'var(--text-highlight)',
+        border: '1px solid var(--admin-border)',
+        boxShadow: 'var(--admin-shadow)'
+      }}
+    >
       {/* Header */}
-      <div className='mb-6 flex items-center gap-3'>
-        <div
-          className='flex h-12 w-12 items-center justify-center rounded-xl text-white'
-          style={{ background: 'var(--teal-primary)' }}
+
+      <div className='mb-8 flex items-center justify-between'>
+        <div className='flex items-center gap-4'>
+          <div
+            className='flex h-14 w-14 items-center justify-center rounded-2xl'
+            style={{
+              background: 'var(--teal-primary)',
+              color: 'var(--text-highlight)'
+            }}
+          >
+            <HiAcademicCap size={28} />
+          </div>
+
+          <div>
+            <h2 className='heading-4'>Child Information</h2>
+
+            <p className='small-text'>Registered student details</p>
+          </div>
+        </div>
+
+        <span
+          className='rounded-full px-4 py-2 text-sm font-semibold'
+          style={{
+            background: 'rgba(22,163,74,.12)',
+            color: 'var(--status-success)'
+          }}
         >
-          <HiAcademicCap size={24} />
+          ● On Bus
+        </span>
+      </div>
+
+      {/* Student */}
+
+      <div
+        className='mb-8 flex items-center gap-5 rounded-2xl p-5'
+        style={{
+          background: 'var(--background)',
+          border: '1px solid var(--admin-border)'
+        }}
+      >
+        <div
+          className='flex h-20 w-20 items-center justify-center rounded-full'
+          style={{
+            background: 'var(--teal-primary)',
+            color: 'var(--text-highlight)'
+          }}
+        >
+          <HiUser size={42} />
         </div>
 
         <div>
-          <h2
-            className='text-xl font-semibold'
-            style={{ color: 'var(--text-mainlight)' }}
-          >
-            Child Information
-          </h2>
+          <h3 className='heading-4'>Aarav Basnet</h3>
 
-          <p className='text-sm' style={{ color: 'var(--text-light1)' }}>
-            Information about your registered child.
-          </p>
+          <p className='body-text'>Grade 5 • Section A</p>
         </div>
       </div>
 
-      {/* Information Table */}
-      <div
-        className='overflow-hidden rounded-2xl border border-slate-200'
-        style={{ background: 'var(--background)' }}
-      >
-        <InfoRow label='Student Name' value='Aarav Basnet' />
+      {/* Information */}
 
-        <InfoRow label='Class' value='Grade 5 • Section A' />
+      <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+        <InfoCard
+          icon={<HiBuildingOffice2 size={22} />}
+          label='School'
+          value='ABC Secondary School'
+        />
 
-        <InfoRow label='Roll Number' value='15' />
+        <InfoCard
+          icon={<HiTruck size={22} />}
+          label='Bus Number'
+          value='Bus 02'
+        />
 
-        <InfoRow label='School' value='ABC Secondary School' />
+        <InfoCard
+          icon={<HiMapPin size={22} />}
+          label='Pickup Point'
+          value='Baneshwor Chowk'
+        />
 
-        <InfoRow label='Assigned Bus' value='Bus 02' />
+        <InfoCard
+          icon={<HiMapPin size={22} />}
+          label='Drop Point'
+          value='Baneshwor Chowk'
+        />
 
-        <InfoRow label='Pickup Point' value='Baneshwor Chowk' />
+        <InfoCard
+          icon={<HiClock size={22} />}
+          label='Pickup Time'
+          value='07:20 AM'
+        />
 
-        <InfoRow label='Pickup Time' value='7:20 AM' />
+        <InfoCard
+          icon={<HiClock size={22} />}
+          label='Drop Time'
+          value='04:30 PM'
+        />
 
-        <InfoRow label='Drop-off Point' value='Baneshwor Chowk' />
+        <InfoCard
+          icon={<HiPhone size={22} />}
+          label='Guardian'
+          value='+977 98XXXXXXXX'
+        />
 
-        <InfoRow label='Drop-off Time' value='4:30 PM' last />
-
-        <InfoRow label='Guardian Contact' value='+977 98XXXXXXXX' last />
+        <InfoCard
+          icon={<HiAcademicCap size={22} />}
+          label='Roll Number'
+          value='15'
+        />
       </div>
     </section>
   )
 }
 
-interface InfoRowProps {
+interface InfoCardProps {
+  icon: React.ReactNode
   label: string
   value: string
-  last?: boolean
 }
 
-function InfoRow ({ label, value, last = false }: InfoRowProps) {
+function InfoCard ({ icon, label, value }: InfoCardProps) {
   return (
     <div
-      className={`flex items-center justify-between px-6 py-4 ${
-        !last ? 'border-b border-slate-200' : ''
-      }`}
+      className='flex items-center gap-4 rounded-2xl p-4'
+      style={{
+        background: 'var(--background)',
+        border: '1px solid var(--admin-border)'
+      }}
     >
-      <p
-        className='w-40 text-sm font-medium'
-        style={{ color: 'var(--text-light1)' }}
+      <div
+        className='flex h-11 w-11 items-center justify-center rounded-xl'
+        style={{
+          background: 'rgba(13,148,136,.10)',
+          color: 'var(--teal-primary)'
+        }}
       >
-        {label}
-      </p>
+        {icon}
+      </div>
 
-      <p
-        className='flex-1 text-right text-sm font-semibold'
-        style={{ color: 'var(--text-mainlight)' }}
-      >
-        {value}
-      </p>
+      <div>
+        <p
+          className='small-text'
+          style={{
+            opacity: 0.75
+          }}
+        >
+          {label}
+        </p>
+
+        <p
+          className='button-text'
+          style={{
+            color: 'var(--text-mainlight)'
+          }}
+        >
+          {value}
+        </p>
+      </div>
     </div>
   )
 }
