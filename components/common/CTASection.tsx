@@ -47,14 +47,14 @@ export default function CTASection () {
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
             className='scale-110'
           >
-            <Button text='Get Started' href='/contact' />
+            <Button text='Get Started' href='/website/contact' />
           </motion.div>
 
           <motion.div
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
             className='scale-110'
           >
-            <Button text='Learn More' href='/about' />
+            <Button text='Learn More' href='/website/about' />
           </motion.div>
         </motion.div>
       </div>

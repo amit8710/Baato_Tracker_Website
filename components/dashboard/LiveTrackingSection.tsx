@@ -61,12 +61,12 @@ export default function LiveTrackingSection () {
 
           <h3 className='heading-2 mt-6'>Baato Map</h3>
 
-          <p className='body-text mx-auto mt-3 max-w-2xl'>
+          {/* <p className='body-text mx-auto mt-3 max-w-2xl'>
             The interactive map will display the live GPS location of the school
             bus, pickup point, school, home location, travel route, and geofence
             alerts after integrating the Baato Maps API and GPS tracking
             service.
-          </p>
+          </p> */}
         </div>
       </div>
 

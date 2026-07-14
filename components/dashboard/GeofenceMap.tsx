@@ -39,11 +39,11 @@ export default function GeofenceMap () {
 
         <h3 className='heading-2 mt-6'>Interactive Geofence Map</h3>
 
-        <p className='body-text mx-auto mt-4 max-w-2xl'>
+        {/* <p className='body-text mx-auto mt-4 max-w-2xl'>
           The Baato Map will appear here after API integration. Parents will be
           able to search for a location or click directly on the map to create
           geofences for bus arrival notifications.
-        </p>
+        </p> */}
 
         {/* Features */}
         <div className='mt-10 grid gap-5 md:grid-cols-3'>
