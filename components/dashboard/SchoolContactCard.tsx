@@ -24,7 +24,7 @@ export default function SchoolContactCard ({ contact }: SchoolContactCardProps) 
   }
 
   return (
-    <div className='rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--teal-primary)] hover:shadow-lg'>
+    <div className='rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal-primary hover:shadow-lg'>
       {/* Header */}
       <div className='flex items-start gap-4'>
         <div
@@ -41,7 +41,7 @@ export default function SchoolContactCard ({ contact }: SchoolContactCardProps) 
           <h3 className='heading-4'>{contact.department}</h3>
 
           <div className='small-text mt-2 flex items-center gap-2'>
-            <HiClock size={16} className='text-[var(--teal-primary)]' />
+            <HiClock size={16} className='text-teal-primary' />
 
             {contact.availability}
           </div>
@@ -50,7 +50,7 @@ export default function SchoolContactCard ({ contact }: SchoolContactCardProps) 
 
       {/* Phone */}
       <div className='mt-6 flex items-center gap-3'>
-        <HiPhone size={18} className='text-[var(--teal-primary)]' />
+        <HiPhone size={18} className='text-teal-primary' />
 
         <span
           className='font-semibold'
@@ -66,7 +66,7 @@ export default function SchoolContactCard ({ contact }: SchoolContactCardProps) 
       <div className='mt-5 flex items-start gap-3'>
         <HiInformationCircle
           size={18}
-          className='mt-1 flex-shrink-0 text-[var(--teal-primary)]'
+          className='mt-1 shrink-0 text-teal-primary'
         />
 
         <p className='small-text'>{contact.description}</p>

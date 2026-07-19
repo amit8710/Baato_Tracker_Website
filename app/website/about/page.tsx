@@ -10,7 +10,7 @@ export default function AboutPage () {
       <PageHero
         companyName='Baato Tracker'
         pageTitle='About Us'
-        backgroundImage='heroimg.png'
+        backgroundImage='/heroimg.png'
       />
 
       <AboutSection />

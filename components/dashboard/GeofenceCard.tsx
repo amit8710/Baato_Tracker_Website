@@ -8,7 +8,7 @@ interface GeofenceCardProps {
 
 export default function GeofenceCard ({ geofence }: GeofenceCardProps) {
   return (
-    <div className='rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--teal-primary)] hover:shadow-lg'>
+    <div className='rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal-primary hover:shadow-lg'>
       {/* Header */}
       <div className='flex items-start justify-between'>
         <div>

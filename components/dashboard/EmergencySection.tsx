@@ -2,7 +2,7 @@
 
 import { HiShieldExclamation, HiBuildingOffice2 } from 'react-icons/hi2'
 
-import SOSCard from './SOSCard'
+// import SOSCard from './SOSCard'
 import SchoolContactCard from './SchoolContactCard'
 import EmergencyInstruction from './EmergencyInstruction'
 
@@ -43,16 +43,13 @@ export default function EmergencySection () {
       </div>
 
       {/* SOS Section */}
-      <SOSCard onSOS={handleSOS} />
+      {/* <SOSCard onSOS={handleSOS} /> */}
 
       {/* School Emergency Contacts */}
       <section className='rounded-3xl border border-slate-200 bg-white'>
         <div className='border-b border-slate-200 p-6'>
           <div className='flex items-center gap-3'>
-            <HiBuildingOffice2
-              size={24}
-              className='text-[var(--teal-primary)]'
-            />
+            <HiBuildingOffice2 size={24} className='text-teal-primary' />
 
             <div>
               <h3 className='heading-4'>School Emergency Contacts</h3>

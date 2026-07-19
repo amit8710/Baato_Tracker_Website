@@ -114,7 +114,10 @@ export default function Introduction () {
               className='mt-10 flex justify-end'
             >
               <div className='scale-110'>
-                <Button text='Explore Features' href='/features' />
+                <Button
+                  text='Explore Features'
+                  href='https://play.google.com/store/apps/details?id=com.google.android.apps.classroom'
+                />
               </div>
             </motion.div>
           </motion.div>

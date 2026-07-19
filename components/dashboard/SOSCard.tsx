@@ -51,10 +51,7 @@ export default function SOSCard ({ onSOS }: SOSCardProps) {
           <div className='grid gap-5 md:grid-cols-3'>
             {/* School Administration */}
             <div className='rounded-xl border border-slate-200 p-5'>
-              <HiBuildingOffice2
-                size={30}
-                className='text-[var(--teal-primary)]'
-              />
+              <HiBuildingOffice2 size={30} className='text-teal-primary' />
 
               <h4 className='heading-4 mt-4'>School Administration</h4>
 
@@ -65,7 +62,7 @@ export default function SOSCard ({ onSOS }: SOSCardProps) {
 
             {/* Transportation Office */}
             <div className='rounded-xl border border-slate-200 p-5'>
-              <HiTruck size={30} className='text-[var(--teal-primary)]' />
+              <HiTruck size={30} className='text-teal-primary' />
 
               <h4 className='heading-4 mt-4'>Transportation Office</h4>
 
@@ -76,10 +73,7 @@ export default function SOSCard ({ onSOS }: SOSCardProps) {
 
             {/* Bus Driver */}
             <div className='rounded-xl border border-slate-200 p-5'>
-              <HiExclamationTriangle
-                size={30}
-                className='text-[var(--teal-primary)]'
-              />
+              <HiExclamationTriangle size={30} className='text-teal-primary' />
 
               <h4 className='heading-4 mt-4'>Assigned Bus Driver</h4>
 

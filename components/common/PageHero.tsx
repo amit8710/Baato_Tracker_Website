@@ -17,7 +17,7 @@ export default function PageHero ({
 }: PageHeroProps) {
   return (
     <section
-      className='relative flex h-[380px] items-center justify-center overflow-hidden md:h-[450px]'
+      className='relative flex h-95 items-center justify-center overflow-hidden md:h-112.5'
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -41,7 +41,7 @@ export default function PageHero ({
         </h2>
       </motion.div>
 
-      {/* Breadcrumb */}
+      {/* Breadcrumb
       <div className='absolute bottom-8 left-6 z-10 flex items-center gap-2 lg:left-12'>
         <Link
           href='/'
@@ -59,7 +59,7 @@ export default function PageHero ({
         <span className='nav-text' style={{ color: 'var(--teal-dark)' }}>
           {pageTitle}
         </span>
-      </div>
+      </div> */}
     </section>
   )
 }

@@ -51,13 +51,13 @@ export default function GeofenceSection () {
         <div className='relative'>
           <HiMagnifyingGlass
             size={20}
-            className='absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-light1)]'
+            className='absolute left-4 top-1/2 -translate-y-1/2 text-(--text-light1)'
           />
 
           <input
             type='text'
             placeholder='Search location...'
-            className='w-full rounded-xl border border-slate-200 py-3 pl-12 pr-4 outline-none transition focus:border-[var(--teal-primary)]'
+            className='w-full rounded-xl border border-slate-200 py-3 pl-12 pr-4 outline-none transition focus:border-teal-primary'
           />
         </div>
 
@@ -65,11 +65,11 @@ export default function GeofenceSection () {
         <input
           type='text'
           placeholder='Geofence name'
-          className='rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-[var(--teal-primary)]'
+          className='rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-primary'
         />
 
         {/* Radius */}
-        <select className='rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-[var(--teal-primary)]'>
+        <select className='rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-primary'>
           {radiusOptions.map(radius => (
             <option key={radius.value} value={radius.value}>
               {radius.label}
@@ -97,7 +97,7 @@ export default function GeofenceSection () {
       {/* Saved Geofences */}
       <div className='p-6'>
         <div className='mb-5 flex items-center gap-3'>
-          <HiCircleStack size={24} className='text-[var(--teal-primary)]' />
+          <HiCircleStack size={24} className='text-teal-primary' />
 
           <h3 className='heading-4'>Saved Geofences</h3>
         </div>

@@ -14,23 +14,26 @@ export default function LoginForm () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     setError('')
+    setLoading(true)
 
     try {
-      login(email, password)
+      await login(email, password)
 
-      // Redirect to Dashboard
       router.push('/admin/dashboard')
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)
       } else {
-        setError('Something went wrong.')
+        setError('Login failed.')
       }
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -55,9 +58,9 @@ export default function LoginForm () {
         <div
           className='small-text rounded-xl px-4 py-3'
           style={{
-            background: 'rgba(220, 38, 38, 0.08)',
+            background: 'rgba(220,38,38,0.08)',
             color: 'var(--status-danger)',
-            border: '1px solid rgba(220, 38, 38, 0.15)'
+            border: '1px solid rgba(220,38,38,0.15)'
           }}
         >
           {error}
@@ -66,20 +69,15 @@ export default function LoginForm () {
 
       <button
         type='submit'
-        className='button-text w-full rounded-xl py-3 transition-all duration-300 hover:-translate-y-0.5'
+        disabled={loading}
+        className='button-text w-full rounded-xl py-3 transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70'
         style={{
           background: 'var(--teal-primary)',
           color: 'var(--text-highlight)',
-          boxShadow: '0 8px 24px rgba(13, 148, 136, 0.2)'
-        }}
-        onMouseEnter={e => {
-          e.currentTarget.style.background = 'var(--teal-dark)'
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.background = 'var(--teal-primary)'
+          boxShadow: '0 8px 24px rgba(13,148,136,0.2)'
         }}
       >
-        Login
+        {loading ? 'Signing in...' : 'Login'}
       </button>
     </form>
   )

@@ -52,11 +52,11 @@ export default function TodayTripSection () {
           return (
             <div
               key={item.title}
-              className='flex items-start gap-4 rounded-2xl border border-slate-200 bg-[var(--background)] p-4 transition hover:border-teal-primary'
+              className='flex items-start gap-4 rounded-2xl border border-slate-200 bg-background p-4 transition hover:border-teal-primary'
             >
               {/* Icon */}
               <div
-                className='flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full'
+                className='flex h-10 w-10 shrink-0 items-center justify-center rounded-full'
                 style={{
                   background: 'rgba(13,148,136,0.12)',
                   color: 'var(--teal-primary)'

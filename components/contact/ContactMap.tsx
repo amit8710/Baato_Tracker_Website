@@ -35,7 +35,7 @@ export default function ContactMap () {
       <div className='w-full'>
         <iframe
           title='Baato Tracker Location'
-          src='https://www.google.com/maps?q=Kathmandu,Nepal&output=embed'
+          src='https://maps.baato.io/places/9357655437#map=11.34/27.7233/85.3266'
           width='100%'
           height='550'
           loading='lazy'

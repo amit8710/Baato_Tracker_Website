@@ -49,7 +49,7 @@ export default function AnnouncementSection () {
                 <input
                   type='text'
                   placeholder='Search announcements...'
-                  className='body-text w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-4 outline-none transition-all focus:border-[var(--teal-primary)] md:w-72'
+                  className='body-text w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-4 outline-none transition-all focus:border-teal-primary md:w-72'
                 />
               </div>
 

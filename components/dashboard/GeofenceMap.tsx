@@ -1,52 +1,21 @@
-import {
-  HiMap,
-  HiMapPin,
-  HiBellAlert,
-  HiCursorArrowRays
-} from 'react-icons/hi2'
+'use client'
+
+import BaatoMap from '../common/BaatoMap'
+
+import { HiMapPin, HiBellAlert, HiCursorArrowRays } from 'react-icons/hi2'
 
 export default function GeofenceMap () {
   return (
-    <div
-      className='relative flex h-[550px] items-center justify-center overflow-hidden'
-      style={{ background: 'var(--background)' }}
-    >
-      {/* Background Pattern */}
-      <div className='absolute inset-0 opacity-5'>
-        <div
-          className='h-full w-full'
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #94a3b8 1px, transparent 1px),
-              linear-gradient(to bottom, #94a3b8 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px'
-          }}
-        />
-      </div>
+    <div className='relative h-[550px] overflow-hidden rounded-3xl'>
+      {/* Baato Map */}
+      <BaatoMap />
 
-      {/* Main Content */}
-      <div className='relative z-10 max-w-2xl px-8 text-center'>
-        <div
-          className='mx-auto flex h-24 w-24 items-center justify-center rounded-full'
-          style={{
-            background: 'rgba(20,184,166,.12)',
-            color: 'var(--teal-primary)'
-          }}
-        >
-          <HiMap size={56} />
-        </div>
+      {/* Overlay */}
+      <div className='pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent' />
 
-        <h3 className='heading-2 mt-6'>Interactive Geofence Map</h3>
-
-        {/* <p className='body-text mx-auto mt-4 max-w-2xl'>
-          The Baato Map will appear here after API integration. Parents will be
-          able to search for a location or click directly on the map to create
-          geofences for bus arrival notifications.
-        </p> */}
-
-        {/* Features */}
-        <div className='mt-10 grid gap-5 md:grid-cols-3'>
+      {/* Feature Cards */}
+      <div className='pointer-events-none absolute bottom-8 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 px-6'>
+        <div className='grid gap-5 md:grid-cols-3'>
           <Feature
             icon={<HiCursorArrowRays size={26} />}
             title='Select Location'
@@ -78,7 +47,7 @@ interface FeatureProps {
 
 function Feature ({ icon, title, description }: FeatureProps) {
   return (
-    <div className='rounded-2xl border border-slate-200 bg-white p-5 transition hover:shadow-md'>
+    <div className='pointer-events-auto rounded-2xl border border-white/20 bg-white/95 p-5 shadow-xl backdrop-blur-md transition hover:shadow-2xl'>
       <div
         className='mx-auto flex h-12 w-12 items-center justify-center rounded-xl'
         style={{
@@ -89,9 +58,9 @@ function Feature ({ icon, title, description }: FeatureProps) {
         {icon}
       </div>
 
-      <h4 className='heading-4 mt-4'>{title}</h4>
+      <h4 className='heading-4 mt-4 text-center'>{title}</h4>
 
-      <p className='small-text mt-2'>{description}</p>
+      <p className='small-text mt-2 text-center'>{description}</p>
     </div>
   )
 }

@@ -1,15 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm'
 import AuthHero from './AuthHero'
 
 export default function AuthLayout () {
-  const [isLogin, setIsLogin] = useState(true)
-
   return (
     <main className='min-h-screen bg-background'>
       <div className='mx-auto flex min-h-screen max-w-7xl items-center px-6 py-10 lg:px-8'>
@@ -32,7 +28,6 @@ export default function AuthLayout () {
               }}
             >
               {/* Logo */}
-
               <div className='mb-8 text-center'>
                 <div
                   className='mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-lg'
@@ -45,68 +40,44 @@ export default function AuthLayout () {
                 </div>
 
                 <h2 className='heading-2' style={{ marginBottom: '0.5rem' }}>
-                  {isLogin ? 'Welcome Back' : 'Create Account'}
+                  Welcome Back
                 </h2>
 
                 <p className='body-text'>
-                  {isLogin
-                    ? 'Sign in to continue to your dashboard.'
-                    : 'Create your Baato Tracker account.'}
+                  Sign in to access your child's live bus tracking,
+                  notifications, and dashboard.
                 </p>
               </div>
 
-              {/* Tabs */}
+              {/* Login Form */}
+              <LoginForm />
 
+              {/* Footer */}
               <div
-                className='mb-8 flex rounded-xl p-1'
-                style={{ background: '#edf2f7' }}
+                className='mt-8 border-t pt-6 text-center'
+                style={{
+                  borderColor: 'var(--border-light)'
+                }}
               >
-                <button
-                  onClick={() => setIsLogin(true)}
-                  className='button-text flex-1 rounded-lg py-2.5 transition-all duration-300'
-                  style={
-                    isLogin
-                      ? {
-                          background: 'var(--teal-primary)',
-                          color: 'var(--text-highlight)',
-                          boxShadow: '0 4px 12px rgba(13,148,136,.25)'
-                        }
-                      : {
-                          color: 'var(--text-mainlight)',
-                          background: 'transparent'
-                        }
-                  }
+                <p
+                  className='small-text'
+                  style={{
+                    color: 'var(--text-muted)'
+                  }}
                 >
-                  Login
-                </button>
+                  Don't have an account?
+                </p>
 
-                <button
-                  onClick={() => setIsLogin(false)}
-                  className='button-text flex-1 rounded-lg py-2.5 transition-all duration-300'
-                  style={
-                    !isLogin
-                      ? {
-                          background: 'var(--teal-primary)',
-                          color: 'var(--text-highlight)',
-                          boxShadow: '0 4px 12px rgba(13,148,136,.25)'
-                        }
-                      : {
-                          color: 'var(--text-mainlight)',
-                          background: 'transparent'
-                        }
-                  }
+                <p
+                  className='mt-2 text-sm'
+                  style={{
+                    color: 'var(--text-mainlight)'
+                  }}
                 >
-                  Register
-                </button>
+                  Please contact your school administrator to obtain your login
+                  credentials.
+                </p>
               </div>
-
-              {/* Forms */}
-
-              {isLogin ? (
-                <LoginForm />
-              ) : (
-                <RegisterForm onRegisterSuccess={() => setIsLogin(true)} />
-              )}
             </div>
           </motion.div>
         </div>
